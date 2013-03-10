@@ -10,7 +10,7 @@ public class SCEnvironment {
 	
 	public static void SetRootPhysicalPath(String m_path)
 	{
-		if(//是否存在)
+		if(true)
 		{
 			_rootPhysicalPath = m_path;
 		}
