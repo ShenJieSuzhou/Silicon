@@ -1,5 +1,5 @@
 package silicon.common;
 
-public class PTLog {
+public class SCLog {
 
 }
