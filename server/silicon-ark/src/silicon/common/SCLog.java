@@ -29,17 +29,27 @@ public class SCLog {
 		}
 		catch(JSONException e)
 		{
-			
+			e.printStackTrace();
 		}
+	}
+	
+	public static void trace(SCObject m_scObject)
+	{
+		trace(m_scObject.toString(true));
 	}
 	
 	public static void warn(String m_message)
 	{
-		
+		_logger.warn(m_message);
 	}
 	
 	public static void error(String m_message)
 	{
-		
+		_logger.error(m_message);
+	}
+	
+	public static void error(Exception m_scException)
+	{
+		_logger.error(m_scException.toString());
 	}
 }
