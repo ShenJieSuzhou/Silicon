@@ -11,8 +11,8 @@ public class SCObject implements Serializable, IJSONObjectSerializable
 	private static final long serialVersionUID = 1845227058568133177L;
 	public static final String META_TYPE = "SCObject";
 	
-	private Map<String, SCObject> _map = null;
-	public SCObject(Map<String, SCObject> m_Map)
+	private Map<String, Object> _map = null;
+	public SCObject(Map<String, Object> m_Map)
 	{
 		_map = m_Map;
 	}
@@ -38,11 +38,11 @@ public class SCObject implements Serializable, IJSONObjectSerializable
 	{
 		if(m_current)
 		{
-			_map = new ConcurrentHashMap<String, SCObject>();
+			_map = new ConcurrentHashMap<String, Object>();
 		}
 		else
 		{
-			_map = new HashMap<String, SCObject>();
+			_map = new HashMap<String, Object>();
 		}
 	}
 	
