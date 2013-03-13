@@ -9,7 +9,7 @@ public class ArkService {
 	}
 	
 	private static ArkService _silicon = null;
-	public ArkService getInstance()
+	public static ArkService getInstance()
 	{
 		if(_silicon == null)
 		{
@@ -22,13 +22,13 @@ public class ArkService {
 	//方舟启动
 	public void start()
 	{
-		
+		System.out.print("Ark start");
 	}
 	
 	//方舟停止
 	public void stop()
 	{
-		
+		System.out.print("Ark stop");
 	}
 	
 	private ArkState _state = null;
