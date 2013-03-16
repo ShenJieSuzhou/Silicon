@@ -3,6 +3,9 @@
 	<name>silicon-ark-website</name>
 	<comment></comment>
 	<projects>
+		<project>silicon-ark</project>
+		<project>silicon-ark-prop</project>
+		<project>platinum-web</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
