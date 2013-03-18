@@ -33,6 +33,14 @@ public class DataBaseConn {
 		_passwd = "admin";
 	}
 	
+	public void closeConn() throws SQLException
+	{
+		if(_conn != null && !_conn.isClosed())
+		{
+			_conn.close();
+		}
+	}
+	
 	/*
 	public void setDriver(String m_driver)
 	{
