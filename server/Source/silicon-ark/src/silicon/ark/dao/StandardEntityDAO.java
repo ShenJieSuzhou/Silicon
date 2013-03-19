@@ -1,11 +1,13 @@
 package silicon.ark.dao;
 import java.sql.*;
+import java.lang.reflect.ParameterizedType;
 
 import silicon.ark.entity.StandardEntity;
 
-public class StandardEntityDAO<T extends StandardEntity>
+public abstract class StandardEntityDAO<T extends StandardEntity>
 {
 	public Connection _conn = null;
+	private Class<T> _entityClass = null;
 	
 	public StandardEntityDAO()
 	{
@@ -25,6 +27,16 @@ public class StandardEntityDAO<T extends StandardEntity>
 		}
 		
 		return _conn;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Class<T> getEntityClass()
+	{
+		if(_entityClass == null)
+		{
+			_entityClass = (Class<T>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+		}
+		return _entityClass;
 	}
 	
 	public void close() throws SQLException

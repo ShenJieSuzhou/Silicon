@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>silicon-ark-prop</name>
+	<name>silicon-cms</name>
 	<comment></comment>
 	<projects>
-		<project>silicon-ark</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
