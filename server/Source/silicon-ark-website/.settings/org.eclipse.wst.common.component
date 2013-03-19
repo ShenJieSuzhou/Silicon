@@ -6,7 +6,7 @@
         <dependent-module archiveName="silicon-ark.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/silicon-ark/silicon-ark">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="platinum-web.war" deploy-path="/WEB-INF/lib" handle="module:/resource/platinum-web/platinum-web">
+        <dependent-module archiveName="silicon-cms.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/silicon-cms/silicon-cms">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="silicon-ark-website"/>
