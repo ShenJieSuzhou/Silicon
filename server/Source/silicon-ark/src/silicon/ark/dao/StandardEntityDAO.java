@@ -1,20 +1,13 @@
 package silicon.ark.dao;
-import java.sql.*;
-import java.lang.reflect.ParameterizedType;
 
 import silicon.ark.entity.StandardEntity;
 
 public abstract class StandardEntityDAO<T extends StandardEntity>
 {
-	public Connection _conn = null;
-	private Class<T> _entityClass = null;
+	//public Connection _conn = null;
+	//private Class<T> _entityClass = null;
 	
-	public StandardEntityDAO()
-	{
-		
-	}
-	
-	public StandardEntityDAO(Connection m_Conn)
+	/*public StandardEntityDAO(Connection m_Conn)
 	{
 		_conn = m_Conn;
 	}
@@ -45,29 +38,18 @@ public abstract class StandardEntityDAO<T extends StandardEntity>
 		{
 			_conn.close();
 		}
-	}
+	}*/
 	
-	public void select()
+	public StandardEntityDAO()
 	{
 		
 	}
 	
-	public void delete()
-	{
-		
-	}
+	public abstract void select(T entity);
 	
-	public void update()
-	{
-		
-	}
+	public abstract void delete(T entity);
 	
-	public void save()
-	{
-		
-	}
+	public abstract void update(T entity);
 	
-	
-	
-	
+	public abstract void save(T entity);
 }
