@@ -21,16 +21,18 @@ public class DataBaseConn {
 	
 	public static void init() throws ClassNotFoundException, SQLException
 	{
+		_driver = "com.mysql.jdbc.Driver";
+		_url = "jdbc:mysql://127.0.0.1:3306/silicon";
+		_user = "root";
+		_passwd = "admin";
+		
 		Class.forName(_driver);
 		_conn = DriverManager.getConnection(_url, _user, _passwd);
 	}
 	
 	public DataBaseConn()
 	{
-		_driver = "com.mysql.jdbc.Driver";
-		_url = "jdbc:mysql://127.0.0.1:3306/silicon";
-		_user = "root";
-		_passwd = "admin";
+		
 	}
 	
 }

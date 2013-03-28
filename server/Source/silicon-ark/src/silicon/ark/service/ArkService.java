@@ -32,9 +32,9 @@ public class ArkService {
 			return;
 		}
 		
-		SCEnvironment.SetRootPhysicalPath(m_rootPhysicalPath);
+		/*SCEnvironment.SetRootPhysicalPath(m_rootPhysicalPath);
 		SCEnvironment.SetWebContentPath(m_rootWebPath);
-		SCEnvironment.GetSharedPath();
+		SCEnvironment.GetSharedPath();*/
 		
 		setState(ArkState.STARTING);
 		

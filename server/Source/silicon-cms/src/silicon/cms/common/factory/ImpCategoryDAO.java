@@ -49,7 +49,9 @@ public class ImpCategoryDAO implements CategoryDAO
 				CategoryEntity m_category = new CategoryEntity();
 				m_category.setId(_rs.getString("CATEGORY_NAME"));
 				_list.add(m_category);
-			}			
+			}
+			_rs.close();
+			_conn.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
