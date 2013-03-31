@@ -32,13 +32,13 @@ public class ArkService {
 			return;
 		}
 		
-		/*SCEnvironment.SetRootPhysicalPath(m_rootPhysicalPath);
-		SCEnvironment.SetWebContentPath(m_rootWebPath);
-		SCEnvironment.GetSharedPath();*/
+		SCEnvironment.SetRootPhysicalPath(m_rootPhysicalPath);
+		SCEnvironment.SetWebContextPath(m_rootWebPath);
+		SCEnvironment.GetSharedPath();
 		
 		setState(ArkState.STARTING);
 		
-		//SCLog.info("Hello from jie Shen<sendshenjieamail@gmail.com>" + " :p ");
+		SCLog.info("Hello from jie Shen<sendshenjieamail@gmail.com>" + " :p ");
 		
 		/*try
 		{
@@ -48,7 +48,7 @@ public class ArkService {
 		catch (Exception e)
 		{
 			setState(ArkState.ERROR);
-			throw new SCRuntimeException("Platinum 平台启动失败。请参考:r\n" + e, e);
+			throw new SCRuntimeException("Silicon 方舟启动失败。请参考:r\n" + e, e);
 		}*/
 		
 		System.out.print("Ark start");
@@ -61,7 +61,7 @@ public class ArkService {
 		setState(ArkState.STOPPING);
 		setState(ArkState.STOPPED);
 		
-		//SCLog.info(" :)  bye bye! ");
+		SCLog.info(" :)  bye bye! ");
 		System.out.print("Ark stop");
 	}
 	
@@ -73,8 +73,7 @@ public class ArkService {
 			_state = m_state;
 		}
 		
-		//打印日志消息 
-		//SCLog.info("Silicon 平台已切换至<"+ _state +">状态");
+		SCLog.info("Silicon 平台已切换至<"+ _state +">状态");
 	}
 	
 	public ArkState getState()

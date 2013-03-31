@@ -10,6 +10,7 @@ import java.util.List;
 import silicon.ark.dao.DataBaseConn;
 import silicon.cms.common.dao.CategoryDAO;
 import silicon.cms.common.entity.CategoryEntity;
+import silicon.common.SCLog;
 
 public class ImpCategoryDAO implements CategoryDAO
 {
@@ -42,12 +43,18 @@ public class ImpCategoryDAO implements CategoryDAO
 		List<CategoryEntity> _list = new ArrayList<CategoryEntity>();
 		try {
 			Connection _conn = DataBaseConn.getConnection();
+			if(_conn == null)
+			{
+				//SCLog.info("获取数据库连接失败： 连接为空   ：（");
+				return null;
+			}
 			Statement _statement = _conn.createStatement();
-			ResultSet _rs = _statement.executeQuery("select　* from ST_CATEGORY");
+			String _sql = "select * from st_category";
+			ResultSet _rs = _statement.executeQuery(_sql);
 			while(_rs.next())
 			{
 				CategoryEntity m_category = new CategoryEntity();
-				m_category.setId(_rs.getString("CATEGORY_NAME"));
+				m_category.setCategoryName(_rs.getString("CATEGORY_NAME"));
 				_list.add(m_category);
 			}
 			_rs.close();

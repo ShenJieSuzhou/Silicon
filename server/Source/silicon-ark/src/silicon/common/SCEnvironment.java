@@ -24,15 +24,15 @@ public class SCEnvironment {
 		}
 	}
 	
-	private static String _webContentPath = null;
-	public static void SetWebContentPath(String m_path)
+	private static String _webContextPath = null;
+	public static void SetWebContextPath(String m_path)
 	{
-		_webContentPath = m_path;
+		_webContextPath = m_path;
 	}
 	
-	public static String GetWebContentPath()
+	public static String GetWebContextPath()
 	{
-		return _webContentPath;
+		return _webContextPath;
 	}
 	
 	

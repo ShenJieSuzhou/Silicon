@@ -2,6 +2,8 @@ package silicon.ark.dao;
 
 import java.sql.*;
 
+import silicon.common.SCLog;
+
 public class DataBaseConn {
 	
 	public static String _url = null;
@@ -24,10 +26,15 @@ public class DataBaseConn {
 		_driver = "com.mysql.jdbc.Driver";
 		_url = "jdbc:mysql://127.0.0.1:3306/silicon";
 		_user = "root";
-		_passwd = "admin";
+		_passwd = "123456";
 		
 		Class.forName(_driver);
 		_conn = DriverManager.getConnection(_url, _user, _passwd);
+		if(!_conn.isClosed())
+		{
+			//SCLog.info("数据库已经关闭!");
+			return;
+		}
 	}
 	
 	public DataBaseConn()

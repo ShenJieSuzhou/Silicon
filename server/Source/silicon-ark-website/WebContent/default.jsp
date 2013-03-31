@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="silicon.cms.common.factory.DAOFactory"%>
+<%@ page import="silicon.cms.common.factory.DAOFactory" %>
 <%@ page import="silicon.cms.common.dao.CategoryDAO"%>
 <%@ page import="java.util.List" %>
 <%@ page import="silicon.cms.common.entity.CategoryEntity" %>
@@ -19,7 +19,7 @@
 	
 %>
 <ul>
-<% for(CategoryEntity post : posts) {%>
+<% for (CategoryEntity post : posts) {%>
 	<li>
 		<div><%=post.getCategoryName() %></div>
 	</li>
