@@ -1,9 +1,8 @@
 package silicon.ark.service;
 
-import javax.servlet.ServletContextEvent;
 import silicon.common.SCEnvironment;
 import silicon.common.SCLog;
-import silicon.common.SCRuntimeException;
+import org.codehaus.jettison.json.*;
 
 public class ArkService {
 	
