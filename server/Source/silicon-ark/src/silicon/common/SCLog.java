@@ -5,7 +5,8 @@ import org.codehaus.jettison.json.JSONObject;
 import org.codehaus.jettison.json.JSONException;
 
 public class SCLog {
-	private static final Logger _logger = Logger.getLogger(Logger.class);
+	private static final Logger _logger = Logger.getLogger(SCLog.class);
+	
 	public static void info(String m_message)
 	{
 		_logger.info(m_message);

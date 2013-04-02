@@ -1,11 +1,10 @@
 package silicon.ark.service;
 
-public enum ArkState {
-	INITIALIZING,
+public enum ArkState 
+{
 	INITIALIZED,
 	STARTING,
 	RUNNING,
-	STOPPING,
 	STOPPED,
 	ERROR
 }

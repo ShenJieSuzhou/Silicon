@@ -2,14 +2,13 @@ package silicon.ark.service;
 
 import silicon.common.SCEnvironment;
 import silicon.common.SCLog;
-import org.codehaus.jettison.json.*;
 
 public class ArkService {
 	
 	public ArkService()
 	{
 		System.out.println("\n");
-		setState(ArkState.INITIALIZING);
+		setState(ArkState.INITIALIZED);
 	}
 	
 	private static ArkService _silicon = null;
@@ -26,7 +25,7 @@ public class ArkService {
 	//方舟启动
 	public void start(String m_rootPhysicalPath, String m_rootWebPath)
 	{
-		if(_state != ArkState.INITIALIZING && _state != ArkState.STOPPED)
+		if(_state != ArkState.INITIALIZED && _state != ArkState.STOPPED)
 		{
 			return;
 		}
@@ -50,27 +49,21 @@ public class ArkService {
 			throw new SCRuntimeException("Silicon 方舟启动失败。请参考:r\n" + e, e);
 		}*/
 		
-		System.out.print("Ark start");
 		setState(ArkState.RUNNING);
 	}
 	
 	//方舟停止
 	public void stop()
 	{
-		setState(ArkState.STOPPING);
 		setState(ArkState.STOPPED);
 		
 		SCLog.info(" :)  bye bye! ");
-		System.out.print("Ark stop");
 	}
 	
 	private ArkState _state = null;
 	public void setState(ArkState m_state)
 	{
-		if(null ==_state)
-		{
-			_state = m_state;
-		}
+		_state = m_state;
 		
 		SCLog.info("Silicon 平台已切换至<"+ _state +">状态");
 	}

@@ -3,8 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="var" path="SC_SERVER_LIB/apache-log4j-1.2.17.jar"/>
-	<classpathentry kind="var" path="SC_SERVER_LIB/codehaus-jettison-1.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.utility"/>
@@ -16,5 +14,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="var" path="SC_SERVER_LIB/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="var" path="SC_SERVER_LIB/codehaus-jettison-1.1.jar"/>
+	<classpathentry kind="var" path="SC_SERVER_LIB/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -26,7 +26,7 @@ public class DataBaseConn {
 		_driver = "com.mysql.jdbc.Driver";
 		_url = "jdbc:mysql://127.0.0.1:3306/silicon";
 		_user = "root";
-		_passwd = "123456";
+		_passwd = "admin";
 		
 		Class.forName(_driver);
 		_conn = DriverManager.getConnection(_url, _user, _passwd);
