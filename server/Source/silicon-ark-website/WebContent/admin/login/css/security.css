@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+html, body
+{
+	margin: 0;
+	padding: 0;
+	background: url(../images/loginBlue.png);
+}
+
+#loginPane
+{
+	display: block;
+	width: 800px;
+	min-height: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#loginPane #logo
+{
+	display: block;
+	width: 800px;
+	height: 150px;
+	overflow: hidden;
+	margin-top: 300px;
+	border: none;
+}
+
+#loginPane #logo img
+{
+	width: 100%;
+	height: 100%;
+}
+
