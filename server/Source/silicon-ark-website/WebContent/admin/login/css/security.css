@@ -5,6 +5,7 @@ html, body
 	margin: 0;
 	padding: 0;
 	background: url(../images/loginBlue.png);
+	overflow-y: hidden;
 }
 
 #loginPane
@@ -28,7 +29,73 @@ html, body
 
 #loginPane #logo img
 {
-	width: 100%;
-	height: 100%;
+	margin-left: 190px;
+	padding: 0;
+}
+
+#loginPane #board
+{
+	display: block;
+	width: 800px;
+	height: 100px;
+	float: left;
+	background: no-repeat url(../images/panel.png);
+}
+
+#login
+{
+	display: block;
+	list-style: none;
+	margin: 20px 0 0 0;
+	padding: 0;
+}
+
+#login li
+{
+	display: block;
+	float: left;
+	padding: 0;
+	margin: 0 0 0 22px;
+}
+
+#user
+{
+	width: 280px;
+	height: 50px;
+	background: no-repeat url(../images/user.png);
+}
+
+#pwd
+{
+	width: 280px;
+	height: 50px;
+	background: no-repeat url(../images/psw.png);
+}
+
+#signin 
+{
+	width: 150px;
+	height: 50px;
+	background: no-repeat url(../images/button.png);
+}
+
+#forgetPwd
+{
+	display: block;
+	font-family: 微软雅黑; 
+	font-size: 12px;
+	
+	float: right;
+}
+
+#forgetPwd a
+{
+	text-decoration: none;
+	color: #0d5fbe;
+}
+
+#forgetPwd a:hover
+{
+	text-decoration: underline;
 }
 

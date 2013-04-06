@@ -13,8 +13,16 @@
 <body>
 	<div id="loginPane">
 		<div id="logo">
-			<img src="images/button.png"/>
+			<img src="login/images/logo.png"/>
 		</div>	
+		<div id="board">
+			<ul id="login">
+				<li id="user"></li>
+				<li id="pwd"></li>
+				<li id="signin"></li>
+			</ul>
+		</div>
+		<div id="forgetPwd"><a href="">忘记密码</a></div>
 	</div>
 </body>
 </html>
