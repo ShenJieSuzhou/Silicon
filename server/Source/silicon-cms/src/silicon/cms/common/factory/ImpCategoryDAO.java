@@ -58,7 +58,7 @@ public class ImpCategoryDAO implements CategoryDAO
 				_list.add(m_category);
 			}
 			_rs.close();
-			_conn.close();
+	
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,6 +66,7 @@ public class ImpCategoryDAO implements CategoryDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return _list;
 	}
 	

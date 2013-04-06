@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Silicon 登录</title>
+<title>Silicon 方舟登录</title>
+<link href="css/common.css" rel="stylesheet"></link>
+
 </head>
 <body>
-
+	<p>登陆界面</p>
 </body>
 </html>
