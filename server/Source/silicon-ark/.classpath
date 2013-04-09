@@ -15,6 +15,6 @@
 	</classpathentry>
 	<classpathentry kind="var" path="SC_SERVER_LIB/mysql-connector-java-5.1.23-bin.jar"/>
 	<classpathentry kind="var" path="SC_SERVER_LIB/codehaus-jettison-1.1.jar"/>
-	<classpathentry kind="var" path="SC_SERVER_LIB/apache-log4j-1.2.17.jar"/>
+	<classpathentry kind="var" path="SC_SERVER_LIB/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

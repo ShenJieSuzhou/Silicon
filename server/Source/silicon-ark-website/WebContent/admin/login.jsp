@@ -11,16 +11,24 @@
 <link href="login/css/security.css" rel="stylesheet"></link>
 </head>
 <body>
+	<div id="register">
+		<a href="#"><img id="reg" src="login/images/register.png" title="注册"/></a>
+	</div>
 	<div id="loginPane">
 		<div id="logo">
 			<img src="login/images/logo.png"/>
 		</div>	
 		<div id="board">
-			<ul id="login">
-				<li id="user"></li>
-				<li id="pwd"></li>
-				<li id="signin"></li>
-			</ul>
+			<form id="security" method="post" action="${pageConetxt.request.contextPath}/api/0/security/login">
+				<ul id="login">
+					<li id="user"><input id="userName" type="text" name="loginName"/></li>
+					<li id="pwd"><input id="psw" type="password" name="password" /></li>
+					<li id="signin">
+						<input type="hidden" name="redirectURL" value="${param.redirectURL}"/>
+        				<input  id="loginButton" type="submit" value=""/>
+        			</li>
+				</ul>
+			</form>
 		</div>
 		<div id="forgetPwd"><a href="">忘记密码</a></div>
 	</div>
