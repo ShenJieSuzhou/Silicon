@@ -10,6 +10,31 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  
+  
+  <servlet>
+      <display-name>REST 风格服务</display-name>
+      <servlet-name>RESTfulServiceServlet</servlet-name>
+      <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+      <init-param>
+          <param-name>com.sun.jersey.config.property.packages</param-name>
+          <param-value>
+             silicon.security.web.rest
+          </param-value>
+      </init-param>
+      <init-param>
+          <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+          <param-value>com.sun.jersey.api.container.filter.GZIPContentEncodingFilter</param-value>
+      </init-param>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>RESTfulServiceServlet</servlet-name>
+      <url-pattern>/api/0/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
   <filter>
   	<display-name>Silicon CMS 安全认证过滤器</display-name>
   	<filter-name>CMSSecurityFilter</filter-name>
