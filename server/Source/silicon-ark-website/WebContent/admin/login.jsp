@@ -9,6 +9,8 @@
 <SC:CoolFrame/>
 <title>Silicon 方舟登录</title>
 <link href="login/css/security.css" rel="stylesheet"></link>
+<script src="common/lib/jquery.js" type="text/javascript"></script>
+<script src="login/scripts/src/LoginPageController.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="register">
