@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import silicon.ark.security.Membership;
+import silicon.ark.security.MembershipUser;
 import silicon.common.SCLog;
 
 public class SecurityFilter implements Filter
@@ -49,13 +51,16 @@ public class SecurityFilter implements Filter
 				}
 				else
 				{
-					HttpSession _session = request.getSession();
+					HttpSession _session = request.getSession(false);
 					if(_session != null)
 					{
-						/*
-						m_chain.doFilter(request, response);
-						return;
-						*/
+						Object _user = _session.getAttribute("membership.currentUser");
+						if(_user != null)
+						{
+							Membership.getInstance().setCurrentUser((MembershipUser)_user);
+							m_chain.doFilter(request, response);
+							return;
+						}
 					}
 					
 					if((path.indexOf("/api/") == -1) && path.endsWith("/") || path.endsWith("jsp"))

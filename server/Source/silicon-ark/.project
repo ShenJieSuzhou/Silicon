@@ -3,7 +3,6 @@
 	<name>silicon-ark</name>
 	<comment></comment>
 	<projects>
-		<project>silicon-cms</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

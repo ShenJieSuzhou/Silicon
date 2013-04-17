@@ -58,7 +58,7 @@ public class ImpCategoryDAO implements CategoryDAO
 				_list.add(m_category);
 			}
 			_rs.close();
-	
+			DataBaseConn.closeConn();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
