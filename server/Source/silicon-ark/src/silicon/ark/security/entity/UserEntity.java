@@ -1,10 +1,11 @@
-package silicon.cms.common.entity;
+package silicon.ark.security.entity;
 
 import silicon.ark.entity.StandardEntity;
 public class UserEntity extends StandardEntity
 {
 	private String _loginName = null;
 	private String _passwd = null;
+	private String _userRole = null;
 	
 	public String getLoginName()
 	{
@@ -26,6 +27,14 @@ public class UserEntity extends StandardEntity
 		_passwd = m_passwd;
 	}
 	
+	public String getUserRole()
+	{
+		return _userRole;
+	}
 	
+	public void setUserRole(String m_userRole)
+	{
+		_userRole = m_userRole;
+	}
 	
 }

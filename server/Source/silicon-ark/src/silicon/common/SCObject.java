@@ -168,5 +168,20 @@ public class SCObject implements Serializable, IJSONObjectSerializable
 	{
 		return toString(false);
 	}
+	
+	public Object get(String p_key)
+	{
+		return _map.get(p_key);
+	}
 
+	public void set(String p_key, Object p_value)
+	{
+		_map.put(p_key, p_value);
+	}
+	
+	public boolean getBoolean(String p_key, boolean p_defaultValue)
+	{
+		Object value = get(p_key);
+		return value != null ? (Boolean) value : p_defaultValue;
+	}
 }

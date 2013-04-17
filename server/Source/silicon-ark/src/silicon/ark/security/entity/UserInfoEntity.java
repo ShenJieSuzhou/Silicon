@@ -1,4 +1,4 @@
-package silicon.cms.common.entity;
+package silicon.ark.security.entity;
 
 public class UserInfoEntity {
 	private String _name = null;

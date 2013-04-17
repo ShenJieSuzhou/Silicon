@@ -2,6 +2,8 @@ package silicon.ark.web.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+
+import silicon.ark.dao.DataBaseConn;
 import silicon.ark.service.ArkService;
 
 public class AppContextListener implements ServletContextListener
@@ -10,6 +12,7 @@ public class AppContextListener implements ServletContextListener
 	@Override
 	public void contextDestroyed(ServletContextEvent m_event) {
 		// TODO Auto-generated method stub
+		DataBaseConn.closeConn();
 		ArkService.getInstance().stop();
 	}
 

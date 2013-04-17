@@ -19,5 +19,6 @@
 	<classpathentry kind="var" path="SC_SERVER_LIB/jsr311-rest-api-1.1.1.jar"/>
 	<classpathentry kind="var" path="SC_SERVER_LIB/jsr315-servlet-3.0-api.jar"/>
 	<classpathentry kind="var" path="SC_SERVER_LIB/jsr317-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/silicon-cms"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

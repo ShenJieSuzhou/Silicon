@@ -1,4 +1,4 @@
-package silicon.cms.common.entity;
+package silicon.ark.security.entity;
 
 import silicon.ark.entity.StandardEntity;
 

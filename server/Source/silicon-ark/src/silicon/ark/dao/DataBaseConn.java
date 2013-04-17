@@ -32,9 +32,17 @@ public class DataBaseConn {
 		_conn = DriverManager.getConnection(_url, _user, _passwd);
 	}
 	
-	public DataBaseConn()
+	public static void closeConn()
 	{
-		
+		try {
+			if(_conn != null & _conn.isClosed())
+			{
+				_conn.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }
