@@ -48,7 +48,7 @@ public class SecurityResource extends AbstractResource
 				MembershipUser _user = Membership.getUserById(_userId);
 				if(_user != null)
 				{
-					HttpSession _session = getResquest().getSession(true);
+					HttpSession _session = getRequest().getSession(true);
 					_session.setAttribute("membership.currentUser", _user);
 					if(m_redirectURL != null)
 					{

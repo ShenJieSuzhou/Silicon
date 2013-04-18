@@ -1,22 +1,22 @@
 package silicon.ark.rest;
 
-import java.util.Date;
 import java.io.File;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.core.Response.ResponseBuilder;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
 
-
-public abstract class AbstractResource {
-	
+public abstract class AbstractResource
+{
 	@Context
 	private UriInfo _uri;
 	
@@ -25,72 +25,70 @@ public abstract class AbstractResource {
 	
 	@Context
 	private HttpServletResponse _response;
-	
-	protected UriInfo getUriInfo()
+
+	protected UriInfo getUri()
 	{
-		return _uri;	
+		return _uri;
 	}
-	
-	protected HttpServletRequest getResquest()
+
+	protected HttpServletRequest getRequest()
 	{
 		return _request;
 	}
-	
+
 	protected HttpServletResponse getResponse()
 	{
 		return _response;
 	}
-	
+
 	protected HttpSession getSession()
 	{
-		if(_request != null)
+		if (_request != null)
 		{
-			HttpSession _session = _request.getSession(true);
-			return _session;
+			HttpSession session = _request.getSession(true);
+			return session;
 		}
-		
 		return null;
 	}
-	
+
 	protected Object getSessionAttribute(String key)
 	{
-		HttpSession _session = getSession();
-		if(_session != null)
+		HttpSession session = getSession();
+		if (session != null)
 		{
-			return _session.getAttribute(key);
+			return session.getAttribute(key);
 		}
-		
 		return null;
 	}
-	
-	protected void setSessionAttribute( String key, Object obj)
+
+	protected void setSessionAttributre(String key, Object value)
 	{
-		HttpSession _session = getSession();
-		if(_session != null)
+		HttpSession session = getSession();
+		if (session != null)
 		{
-			_session.setAttribute(key, obj);
+			session.setAttribute(key, value);
 		}
 	}
-	
-	protected String getHttpHeadr(String key)
+
+	protected String getHttpHeader(String key)
 	{
-		if(_request != null)
+		if (_request != null)
 		{
 			return _request.getHeader(key);
 		}
 		return null;
 	}
-	
+
 	protected Response responseOK()
 	{
 		return Response.ok().build();
 	}
-	
+
 	protected Response responseWithText(String text)
 	{
 		return Response.ok(text, MediaType.TEXT_PLAIN_TYPE).build();
 	}
-	
+
 	protected Response responseWithText(String text, Date p_lastModified)
 	{
 		return Response.ok(text, MediaType.TEXT_PLAIN_TYPE).lastModified(p_lastModified).build();
@@ -100,12 +98,12 @@ public abstract class AbstractResource {
 	{
 		return Response.ok(content, mediaType).build();
 	}
-	
+
 	protected Response responseWithMedia(String content, String mediaType)
 	{
 		return Response.ok(content, mediaType).build();
 	}
-	
+
 	protected Response responseWithHTML(String html)
 	{
 		return Response.ok(html, MediaType.TEXT_HTML_TYPE).build();
