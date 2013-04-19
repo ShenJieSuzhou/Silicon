@@ -23,7 +23,6 @@ pt.cms.admin.security.page.LoginPageController = function()
         var top = ($(document).height() - $("#loginPane").height()) / 2;
         $("#loginPane").css("marginTop", top);
         $("#loginPane").fadeIn();
-        
         $("#userName").select();
         $("#security").on("submit", _loginForm_onsubmit);
     };

@@ -7,6 +7,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Response;
 
 import silicon.ark.rest.AbstractResource;
+import silicon.common.SCLog;
 import silicon.common.util.StringUtil;
 import silicon.ark.security.Membership;
 import silicon.ark.security.MembershipUser;
@@ -35,7 +36,7 @@ public class SecurityResource extends AbstractResource
 	@POST
 	@Path("login")
 	public Response login(@FormParam("loginName") String m_loginName,
-			@FormParam("passWord") String m_password,
+			@FormParam("password") String m_password,
 			@FormParam("redirectURL") String m_redirectURL)
 	{
 		if(StringUtil.notNullOrEmpty(m_loginName) && StringUtil.notNullOrEmpty(m_password))

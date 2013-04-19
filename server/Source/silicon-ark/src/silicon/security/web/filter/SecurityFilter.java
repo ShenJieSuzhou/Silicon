@@ -67,7 +67,7 @@ public class SecurityFilter implements Filter
 						response.setCharacterEncoding("UTF-8");
 						response.setContentType("text/html; charset=UTF-8");
 						PrintWriter out = response.getWriter();
-						String uri = request.getContextPath() + _loginPath + "?RedirectURI=" + path; 
+						String uri = request.getContextPath() + _loginPath + "?redirectURL=" + request.getContextPath() + path;
 						out.println("<html><head><title>正在跳转至登陆页面...</title><meta http-equiv='refresh' content='0; url=" + uri + "' /></head><body></body></html>");
 						out.close();
 						return;

@@ -28,7 +28,7 @@ var pageController = new pt.cms.admin.security.page.LoginPageController();
 					<li id="user"><input id="userName" type="text" name="loginName" /></li>
 					<li id="pwd"><input id="psw" type="password" name="password" /></li>
 					<li id="signin">
-						<input type="hidden" name="redirectURL" value="${param.redirectURL}"/>
+						<input type="hidden" name="redirectURL" value="${param.redirectURL}" />
         				<input id="loginButton" type="submit" value=""/>
         			</li>
 				</ul>

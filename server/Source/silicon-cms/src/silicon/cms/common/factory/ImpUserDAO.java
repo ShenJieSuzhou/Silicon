@@ -89,6 +89,7 @@ public class ImpUserDAO implements UserDAO
 				_UserEntity.setId(_rst.getString("user_id"));
 				_UserEntity.setLoginName(_rst.getString("login_name"));
 				_UserEntity.setPassWd(_rst.getString("login_pass"));
+				_UserEntity.setUserRole(_rst.getString("ST_USER_GROUP_USER_ID"));
 				_rst.close();
 				return _UserEntity;
 			}
@@ -120,20 +121,16 @@ public class ImpUserDAO implements UserDAO
 		try {
 			_conn = DataBaseConn.getConnection();
 			Statement _statement = _conn.createStatement();
-			String _sql = _prefix + "login_pass = " + m_userID;
+			String _sql = _prefix + "USER_ID = " + "'" + m_userID + "'";
 			ResultSet _rst = _statement.executeQuery(_sql);
-			if(_rst.getRow()  == 0)
-			{
-				//SCLog.info("未找到用户数据");
-				_rst.close();
-				return null;
-			}
-			if(_rst.getRow() == 1)
+			if(_rst != null)
 			{
 				UserEntity _UserEntity = new UserEntity();
+				_rst.next();
 				_UserEntity.setId(_rst.getString("user_id"));
-				_UserEntity.setLoginName("login_name");
+				_UserEntity.setLoginName(_rst.getString("login_name"));
 				_UserEntity.setPassWd(_rst.getString("login_pass"));
+				_UserEntity.setUserRole(_rst.getString("ST_USER_GROUP_USER_ID"));
 				_rst.close();
 				return _UserEntity;
 			}
