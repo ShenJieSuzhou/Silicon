@@ -24,7 +24,7 @@ public class Membership {
 		return _instance;
 	}
 	
-	public static UserDAO getUserEntity()
+	public static UserDAO getUserEntityDAO()
 	{
 		return _UserDAO;
 	}
@@ -55,7 +55,12 @@ public class Membership {
 	
 	public static MembershipUser getUserById(String m_userID)
 	{
-		UserEntity _userEntity = getUserEntity().getUserEntityByID(m_userID);
+		if(_UserDAO == null)
+		{
+			return null;
+		}
+		
+		UserEntity _userEntity = _UserDAO.getUserEntityByID(m_userID);
 		if(_userEntity != null)
 		{
 			MembershipUser _user = MembershipUser.createFromSCObject(_userEntity);
@@ -69,7 +74,12 @@ public class Membership {
 
 	public static UserEntity getUserEntityByLoginName(String m_loginName)
 	{
-		UserEntity _UserEntity = getUserEntity().getUserEntity(m_loginName);
+		if(_UserDAO == null)
+		{
+			return null;
+		}
+		
+		UserEntity _UserEntity = _UserDAO.getUserEntity(m_loginName);
 		if(_UserEntity == null)
 		{
 			SCLog.info("UserEntity 数据项为空");

@@ -10,13 +10,15 @@ import java.util.List;
 import silicon.ark.dao.DataBaseConn;
 import silicon.cms.common.dao.CategoryDAO;
 import silicon.cms.common.entity.CategoryEntity;
-import silicon.common.SCLog;
 
 public class ImpCategoryDAO implements CategoryDAO
 {
-
+	
+	private static String _prefix = null;
+	
 	public ImpCategoryDAO() {
 		// TODO Auto-generated constructor stub
+		_prefix = "select * from st_category";
 	}
 
 	@Override
@@ -49,8 +51,7 @@ public class ImpCategoryDAO implements CategoryDAO
 				return null;
 			}
 			Statement _statement = _conn.createStatement();
-			String _sql = "select * from st_category";
-			ResultSet _rs = _statement.executeQuery(_sql);
+			ResultSet _rs = _statement.executeQuery(_prefix);
 			while(_rs.next())
 			{
 				CategoryEntity m_category = new CategoryEntity();

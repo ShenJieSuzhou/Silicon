@@ -12,6 +12,7 @@ public class AppContextListener implements ServletContextListener
 	@Override
 	public void contextDestroyed(ServletContextEvent m_event) {
 		// TODO Auto-generated method stub
+		DataBaseConn.closeConn();
 		ArkService.getInstance().stop();
 		//DataBaseConn.closeConn();
 	}

@@ -16,9 +16,8 @@ public class ImpUserDAO implements UserDAO
 	private static Connection _conn = null;
 	private static String _prefix = null;
 	
-	public ImpUserDAO() throws ClassNotFoundException, SQLException {
+	public ImpUserDAO(){
 		// TODO Auto-generated constructor stub
-		_conn = DataBaseConn.getConnection();
 		_prefix = "select * from st_user where ";
 	}
 	
@@ -32,6 +31,7 @@ public class ImpUserDAO implements UserDAO
 	public boolean IsExist(String m_user, String m_pwd) {
 		// TODO Auto-generated method stub
 		try {
+			_conn = DataBaseConn.getConnection();
 			if(_conn == null)
 			{
 				SCLog.info("Connection 连接字串为空");
@@ -43,7 +43,6 @@ public class ImpUserDAO implements UserDAO
 			ResultSet _rst = _statement.executeQuery(_sql);
 			if(null == _rst)
 			{
-				_rst.close();
 				return false;
 			}
 			
@@ -61,11 +60,15 @@ public class ImpUserDAO implements UserDAO
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return false;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public UserEntity getUserEntity(String m_loginName) {
 		// TODO Auto-generated method stub
@@ -75,20 +78,16 @@ public class ImpUserDAO implements UserDAO
 		}
 		
 		try {
+			_conn = DataBaseConn.getConnection();
 			Statement _statement = _conn.createStatement();
-			String _sql = _prefix + "login_name = " + m_loginName;
+			String _sql = _prefix + "login_name = " + "'" + m_loginName +"'";
 			ResultSet _rst = _statement.executeQuery(_sql);
-			if(_rst.getRow()  == 0)
-			{
-				//SCLog.info("未找到用户数据");
-				_rst.close();
-				return null;
-			}
-			if(_rst.getRow() == 1)
+			if(_rst!= null)
 			{
 				UserEntity _UserEntity = new UserEntity();
+				_rst.next();
 				_UserEntity.setId(_rst.getString("user_id"));
-				_UserEntity.setLoginName("login_name");
+				_UserEntity.setLoginName(_rst.getString("login_name"));
 				_UserEntity.setPassWd(_rst.getString("login_pass"));
 				_rst.close();
 				return _UserEntity;
@@ -100,6 +99,9 @@ public class ImpUserDAO implements UserDAO
 				return null;
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -116,6 +118,7 @@ public class ImpUserDAO implements UserDAO
 		}
 		
 		try {
+			_conn = DataBaseConn.getConnection();
 			Statement _statement = _conn.createStatement();
 			String _sql = _prefix + "login_pass = " + m_userID;
 			ResultSet _rst = _statement.executeQuery(_sql);
@@ -141,6 +144,9 @@ public class ImpUserDAO implements UserDAO
 				return null;
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

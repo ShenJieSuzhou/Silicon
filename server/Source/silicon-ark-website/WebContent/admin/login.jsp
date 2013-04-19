@@ -8,11 +8,11 @@
 
 <SC:CoolFrame/>
 <script>
-$import("sc.cms.admin.security.page.LoginPageController");
+$import("pt.cms.admin.security.page.LoginPageController");
 </script>
 
 <script>
-var pageController = new sc.cms.admin.security.page.LoginPageController();
+var pageController = new pt.cms.admin.security.page.LoginPageController();
 </script>
 
 <title>Silicon 方舟登录</title>
@@ -25,7 +25,7 @@ var pageController = new sc.cms.admin.security.page.LoginPageController();
 		<div id="board">
 			<form id="security" method="post" action="${pageContext.request.contextPath}/api/0/security/login" enctype="application/x-www-form-urlencoded">
 				<ul id="login">
-					<li id="user"><input id="userName" type="text" name="loginName"/></li>
+					<li id="user"><input id="userName" type="text" name="loginName" /></li>
 					<li id="pwd"><input id="psw" type="password" name="password" /></li>
 					<li id="signin">
 						<input type="hidden" name="redirectURL" value="${param.redirectURL}"/>

@@ -18,7 +18,7 @@ public class SecurityResource extends AbstractResource
 	@Path("validate")
 	public Response validateUser(
 			@FormParam("loginName") String m_loginName,
-			@FormParam("passWord") String m_password
+			@FormParam("loginPassword") String m_password
 			)
 	{
 		Membership.getInstance();

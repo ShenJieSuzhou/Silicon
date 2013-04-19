@@ -1,10 +1,10 @@
-$ns("sc.cms.admin.security.page");
+$ns("pt.cms.admin.security.page");
 
-$import("sc.cms.admin.rest.RESTClient");
+$import("pt.cms.admin.rest.RESTClient");
 
-$include("$/sc/cms/admin/security/page/security.css");
+$include("$/pt/cms/admin/security/page/security.css");
 
-sc.cms.admin.security.page.LoginPageController = function()
+pt.cms.admin.security.page.LoginPageController = function()
 {
     var me = $extend(mx.page.PageController);
     var base = {};

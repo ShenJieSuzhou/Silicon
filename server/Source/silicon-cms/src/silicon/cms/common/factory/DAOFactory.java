@@ -12,7 +12,7 @@ public class DAOFactory {
 	
 	public static UserDAO getUserInstance()
 	{
-		return null;
+		return new ImpUserDAO();
 	}
 
 }
