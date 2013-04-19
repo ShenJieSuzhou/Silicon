@@ -41,7 +41,7 @@
   <filter>
       <display-name>转发重写过滤器</display-name>
       <filter-name>RewriteFilter</filter-name>
-      <filter-class>silicon.cms.runtime.web.filter.ReWriteFilter</filter-class>
+      <filter-class>silicon.cms.runtime.web.filter.RewriteFilter</filter-class>
   </filter>
   <filter-mapping>
       <filter-name>RewriteFilter</filter-name>

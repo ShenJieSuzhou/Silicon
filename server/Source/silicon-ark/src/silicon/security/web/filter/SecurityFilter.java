@@ -30,8 +30,7 @@ public class SecurityFilter implements Filter
 	@Override
 	public void doFilter(ServletRequest m_request, ServletResponse m_response,
 			FilterChain m_chain) throws IOException, ServletException {
-		
-		if(m_request instanceof HttpServletRequest)
+				if(m_request instanceof HttpServletRequest)
 		{
 			HttpServletRequest request = (HttpServletRequest)m_request;
 			HttpServletResponse response = (HttpServletResponse)m_response;

@@ -13,7 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ReWriterFilter implements Filter
+public class RewriteFilter implements Filter
 {
 	private static Pattern _postURLPattern = null;
 	private static Pattern _moreCategoryURLPattern = null;
@@ -22,10 +22,9 @@ public class ReWriterFilter implements Filter
 	private static Pattern _mobmoreSubcategoryURLPattern = null;
 	private static Pattern _mobpostURLPattern = null;
 	private static Pattern _viewCategoryURLPattern=null;
-
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
+	public void init(FilterConfig p_config) throws ServletException
+	{
 		if (_postURLPattern == null)
 		{
 			_postURLPattern = Pattern.compile("/([a-z]+)/([a-f0-9]{32}).html");
@@ -40,10 +39,13 @@ public class ReWriterFilter implements Filter
 		}
 	}
 	
+
+	
+	
 	@Override
 	public void doFilter(ServletRequest p_request, ServletResponse p_response,
-			FilterChain p_chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
+			FilterChain p_chain) throws IOException, ServletException
+	{
 		HttpServletRequest request = (HttpServletRequest)p_request;
 		HttpServletResponse response = (HttpServletResponse)p_response;
 		String uri = request.getRequestURI();
@@ -168,10 +170,13 @@ public class ReWriterFilter implements Filter
 		}
 	}
 	
+	
+	
+	
 	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
+	public void destroy()
+	{
+
 	}
 
 }
