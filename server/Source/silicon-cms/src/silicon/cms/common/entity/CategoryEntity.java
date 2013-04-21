@@ -15,5 +15,14 @@ public class CategoryEntity extends StandardEntity
 		_categoryName = m_categoryName;
 	}
 	
+	private String _categoryId = null;
+	public String getCategoryId()
+	{
+		return _categoryId;
+	}
 	
+	public void setCategoryId(String m_categoryId)
+	{
+		_categoryId = m_categoryId;
+	}	
 }

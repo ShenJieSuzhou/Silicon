@@ -13,5 +13,4 @@ public interface CategoryDAO
 	public void delete(CategoryEntity m_category);
 	
 	public List<CategoryEntity> query(String m_sql);
-	
 }

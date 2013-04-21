@@ -12,22 +12,6 @@
 </head>
 <body>
 <p>hello world</p>
-<%
-	List<CategoryEntity> posts = null;
-	CategoryDAO category = DAOFactory.getCategoryInstance();
-	posts = category.query("");
-	
-%>
-<ul>
-<% for (CategoryEntity post : posts) {%>
-	<li>
-		<div><%=post.getCategoryName() %></div>
-	</li>
-<%}%>
-</ul>
 
-<ul>
-
-</ul>
 </body>
 </html>

@@ -2,6 +2,7 @@ package silicon.cms.common.factory;
 
 import silicon.ark.security.dao.UserDAO;
 import silicon.cms.common.dao.CategoryDAO;
+import silicon.cms.common.dao.SubCategoryDAO;
 
 public class DAOFactory {
 	
@@ -14,5 +15,16 @@ public class DAOFactory {
 	{
 		return new ImpUserDAO();
 	}
+	
+	public static SubCategoryDAO getSubCategoryDAO()
+	{
+		return new ImpSubCategoryDAO();
+	}
+	
+	public static SubCategoryDAO getSubCategoryDAO(String m_categoryName)
+	{
+		return new ImpSubCategoryDAO(m_categoryName);
+	}
+	
 
 }
