@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/silicon-ark"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/silicon-cms"/>
+	<classpathentry kind="var" path="SC_SERVER_LIB"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

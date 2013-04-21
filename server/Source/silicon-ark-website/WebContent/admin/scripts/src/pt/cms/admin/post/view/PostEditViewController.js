@@ -146,13 +146,13 @@ pt.cms.admin.post.view.PostEditViewController = function()
         $dl = $("<dl><dt>状态</dt> <dd></dd></dl>");
         me.$postStatus = $("<select id=postStatus><option value=0>尚未发布</option><option value=1>已发布</option></select>");
         $dl.children("dd").append(me.$postStatus);
-        $sideBar.append($dl);
+        //$sideBar.append($dl);
         
 
         $dl = $("<dl><dt>类型</dt> <dd></dd></dl>");
         me.$postType = $("<select id=postStatus><option value=0>静态信息</option><option value=1 selected=selected>新闻</option><option value=2>通知</option><option value=3>链接</option></select>");
         $dl.children("dd").append(me.$postType);
-        $sideBar.append($dl);
+        //$sideBar.append($dl);
         
         var $dl = $("<dl><dt>栏目</dt> <dd></dd></dl>");
         me.$category = $("<select id=category><option value=0>(请选择栏目)</option></select>");
@@ -172,7 +172,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
         var $dl = $("<dl><dt>封面图片</dt> <dd></dd></dl>");
         me.$photoURL = $("<input type=text id=photoURL />");
         $dl.children("dd").append(me.$photoURL);
-        $sideBar.append($dl);
+        //$sideBar.append($dl);
         
         var $dl = $("<dl><dt>来源</dt> <dd></dd></dl>");
         me.$source = $("<input type=text id=source />");
