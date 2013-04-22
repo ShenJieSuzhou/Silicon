@@ -28,5 +28,6 @@
 	<classpathentry kind="var" path="SC_SERVER_LIB/jsoup-1.7.1.jar"/>
 	<classpathentry kind="var" path="SC_SERVER_LIB/IKAnalyzer2012.jar"/>
 	<classpathentry kind="var" path="SC_SERVER_LIB/jvnet-mimepull-1.3.jar"/>
+	<classpathentry kind="var" path="SC_SERVER_LIB/codehaus-jettison-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

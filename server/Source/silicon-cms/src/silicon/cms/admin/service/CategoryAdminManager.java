@@ -16,7 +16,7 @@ public class CategoryAdminManager {
 	}
 	
 	private static CategoryAdminManager _instance = null;
-	public CategoryAdminManager getInstance()
+	public static CategoryAdminManager getInstance()
 	{
 		if(_instance == null)
 		{

@@ -56,7 +56,7 @@ public class ImpCategoryDAO implements CategoryDAO
 			while(_rs.next())
 			{
 				CategoryEntity m_category = new CategoryEntity();
-				m_category.setCategoryId(_rs.getString("CATEGORY_ID"));
+				m_category.setId(_rs.getString("CATEGORY_ID"));
 				m_category.setCategoryName(_rs.getString("CATEGORY_NAME"));
 				_list.add(m_category);
 			}
