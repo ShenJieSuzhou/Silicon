@@ -12,4 +12,6 @@ public interface SubCategoryDAO {
 	public void delete(SubCategoryEntity m_category);
 	
 	public List<SubCategoryEntity> query(String m_sql);
+	
+	public SubCategoryEntity queryEntityById(String m_subCategoryId);
 }

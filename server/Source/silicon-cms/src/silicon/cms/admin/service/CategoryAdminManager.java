@@ -53,7 +53,7 @@ public class CategoryAdminManager {
 	
 	public List<SubCategoryEntity> loadMySubCategory(String m_categoryId)
 	{
-		String _sql = "select * from st_category where ST_CATEGORY_CATEGORY_ID = " + "'" + m_categoryId + "'";
+		String _sql = "select * from st_subcategory where ST_CATEGORY_CATEGORY_ID = " + "'" + m_categoryId + "'";
 		
 		return getSubCategoryDAO().query(_sql);
 	}	

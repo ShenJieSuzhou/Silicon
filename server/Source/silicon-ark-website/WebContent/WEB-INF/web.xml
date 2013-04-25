@@ -23,6 +23,7 @@
           <param-name>com.sun.jersey.config.property.packages</param-name>
           <param-value>
              silicon.security.web.rest
+             silicon.cms.admin.web.rest
           </param-value>
       </init-param>
       <init-param>

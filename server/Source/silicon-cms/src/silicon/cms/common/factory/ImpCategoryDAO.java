@@ -48,7 +48,7 @@ public class ImpCategoryDAO implements CategoryDAO
 			Connection _conn = DataBaseConn.getConnection();
 			if(_conn == null)
 			{
-				SCLog.info("获取数据库连接失败： 连接为空   ：（");
+				SCLog.info("CategoryEntity 获取数据库连接失败： 连接为空   ：（");
 				return null;
 			}
 			Statement _statement = _conn.createStatement();
@@ -71,6 +71,38 @@ public class ImpCategoryDAO implements CategoryDAO
 		}
 		
 		return _list;
+	}
+
+	@Override
+	public CategoryEntity queryEntityById(String m_categoryId) {
+		// TODO Auto-generated method stub
+		String _sql = "select * from st_category where category_id = " + "'" + m_categoryId + "'";
+		CategoryEntity _category = new CategoryEntity();
+		try {
+			Connection _conn = DataBaseConn.getConnection();
+			if(_conn == null)
+			{
+				SCLog.info("获取数据库连接失败： 连接为空   T_T");
+				return null;
+			}
+			Statement _statement = _conn.createStatement();
+			ResultSet _rs = _statement.executeQuery(_sql);
+			if(_rs == null)
+				return null;
+			
+			_rs.next();
+			_category.setId(_rs.getString("CATEGORY_ID"));
+			_category.setCategoryName(_rs.getString("CATEGORY_NAME"));
+			_rs.close();
+			DataBaseConn.closeConn();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return _category;
 	}
 	
 }

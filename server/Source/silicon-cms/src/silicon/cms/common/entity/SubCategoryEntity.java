@@ -14,4 +14,15 @@ public class SubCategoryEntity extends StandardEntity
 	{
 		_subCategoryName = m_subCategoryName;
 	}
+	
+	private String _subCategoryRef = null;
+	public String getSubCategoryRef()
+	{
+		return _subCategoryRef;
+	}
+	
+	public void setSubCategoryRef(String m_subCategoryRef)
+	{
+		_subCategoryRef = m_subCategoryRef;
+	}
 }

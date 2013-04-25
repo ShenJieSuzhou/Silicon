@@ -197,7 +197,6 @@ pt.cms.admin.post.view.PostEditViewController = function()
         me.view.$element.append($main);
         me.view.$element.append($sideBar);
         
-        
         me.restClient.GET("admin/category/", null)
             .success(function(p_result){
                 me.categories = p_result;
@@ -218,7 +217,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
                 
                 for (var i = 0; i < me.categories.length; i++)
                 {
-                    if (me.categories[i].id == "news")
+                    if (me.categories[i].id == "STC00000000000000000000000000001")
                     {
                         var subcategories = me.categories[i].subcategories;
                         for (var j = 0; j < subcategories.length; j++)

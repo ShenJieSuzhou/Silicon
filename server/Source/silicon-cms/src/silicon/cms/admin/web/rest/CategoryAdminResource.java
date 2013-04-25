@@ -8,6 +8,7 @@ import silicon.cms.common.entity.CategoryEntity;
 import silicon.cms.common.entity.SubCategoryEntity;
 import silicon.cms.common.serialization.CategoryJSONSerializer;
 import silicon.cms.common.serialization.SubcategoryJSONserializer;
+import silicon.common.SCLog;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -24,6 +25,7 @@ public class CategoryAdminResource extends AbstractResource
 	@Path("/")
 	public Response LoadMyCategory() throws JSONException
 	{
+		SCLog.info("enter admin/category/");
 		List<CategoryEntity> _categoryList = CategoryAdminManager.getInstance().loadMyCategory();
 		JSONArray _result = CategoryJSONSerializer.toSimpleArray(_categoryList);
 		

@@ -25,7 +25,7 @@ public class SubcategoryJSONserializer {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return _json;
 	}
 	
 	public static JSONArray toSimpleArray(List<SubCategoryEntity> m_subcategory)
