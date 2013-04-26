@@ -34,7 +34,11 @@ public class MembershipUser extends SCObject
 	
 	public String getUserRole()
 	{
-		return getString("user_role");
+		if("STUG0000000000000000000000000003".equals(getString("user_role")))
+		{
+			return "administor";
+		}
+		return null;
 	}
 	
 	public boolean isAdministator()

@@ -1,7 +1,7 @@
 package silicon.cms.admin.web.rest;
 
-import java.util.List;
-
+import java.sql.Timestamp;
+import java.util.Date;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.FormParam;
@@ -16,7 +16,9 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import silicon.ark.rest.AbstractResource;
 import silicon.ark.security.Membership;
+import silicon.cms.admin.service.PostAdminManager;
 import silicon.cms.common.entity.GoodsEntity;
+import silicon.common.SCLog;
 
 @Path("admin/post")
 public class PostAdminResource extends AbstractResource
@@ -30,7 +32,7 @@ public class PostAdminResource extends AbstractResource
 			)
 	{
 		
-		List<GoodsEntity> _goods = null;
+		//List<GoodsEntity> _goods = null;
 		return null;
 	}
 	
@@ -45,23 +47,24 @@ public class PostAdminResource extends AbstractResource
 	@Path("/")
 	public Response savePost(@FormParam("post") String m_postJSONString) throws JSONException
 	{
+		SCLog.info("enter savePost");
 		JSONObject postJSON = new JSONObject(m_postJSONString);
 		GoodsEntity post = new GoodsEntity();
 		post.setPublisher(Membership.getInstance().getCurrentUser().getUserRole());
 		
 		_parsePostFromJSON(postJSON, post);
 		
-		String _postCategoryId=post.getCategoryId();
+		//String _postCategoryId=post.getCategoryId();
 	
-		if(_postCategoryId.equals(Membership.getInstance().getCurrentUser().getUserRole()))
+		/*if(_postCategoryId.equals(Membership.getInstance().getCurrentUser().getUserRole()))
 		{
-			//PostAdminManager.getInstance().savePost(post);
+			PostAdminManager.getInstance().savePost(post);
 		}
-		if("Administrator".equals( Membership.getInstance().getCurrentUser().getUserRole() ))
+		if(Membership.getInstance().getCurrentUser().isAdministator())
 		{
-			//PostAdminManager.getInstance().savePost(post);
-		}
-		
+			PostAdminManager.getInstance().savePost(post);
+		}*/
+		PostAdminManager.getInstance().savePost(post);
 		JSONObject jsonResult = _generateSimplePostJSON(post);
 		return responseWithJSONObject(jsonResult);
 	}
@@ -69,9 +72,21 @@ public class PostAdminResource extends AbstractResource
 	@PUT
 	@Path("/{id}")
 	public Response updatePost(@PathParam("id") String m_id,
-			@FormParam("post") String m_postJSONString)
+			@FormParam("post") String m_postJSONString) throws JSONException
 	{
-		return null;
+		GoodsEntity post = PostAdminManager.getInstance().getPostById(m_id);
+		if(post != null)
+		{
+			JSONObject postJSON = new JSONObject(m_postJSONString);
+			_parsePostFromJSON(postJSON, post);
+			PostAdminManager.getInstance().updatePost(post);
+			JSONObject jsonResult = _generateSimplePostJSON(post);
+			return responseWithJSONObject(jsonResult);
+		}
+		else
+		{
+			return responseWithException("没有找到标识为“" + m_id + "”的文章。");
+		}
 	}
 	
 	@DELETE
@@ -89,6 +104,9 @@ public class PostAdminResource extends AbstractResource
 		post.setSummary(postJSON.getString("summary"));
 		post.setCategoryId(postJSON.getString("categoryId"));
 		post.setPrice(postJSON.getString("price"));
+		Date _date = new Date();
+		Timestamp _stamp = new Timestamp(_date.getTime());
+		post.setCreateTime(_stamp);
 		if (postJSON.getString("subcategoryId") != "null")
 		{
 			post.setSubcategoryId(postJSON.getString("subcategoryId"));
@@ -96,6 +114,15 @@ public class PostAdminResource extends AbstractResource
 		else
 		{
 			post.setSubcategoryId(null);
+		}
+		
+		if (postJSON.getString("photoURL") != "null")
+		{
+			post.setPhotoURL(postJSON.getString("photoURL"));
+		}
+		else
+		{
+			post.setPhotoURL(null);
 		}
 	}
 	

@@ -23,6 +23,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
     me.$id = null;
     me.$title = null;
     me.$summary = null;
+    me.$price = null;
     me.$category = null;
     me.$subcategory = null;
     me.$homeSubcategory = null;
@@ -120,6 +121,12 @@ pt.cms.admin.post.view.PostEditViewController = function()
         $div.append(me.$summary);
         $main.append($div);
         
+        $div = $("<div class='section' id='priceSection'>");
+        me.$price = $("<textarea id=price/>");
+        me.$price.attr({ title: "请在这里添加价格" });
+        $div.append(me.$price);
+        $main.append($div);
+        
         
         $div = $("<div class='section' id='attachmentSection'> <ul id='attachmentList'></ul> </div>");
         me.$attachmentList = $div.children("#attachmentList");
@@ -167,17 +174,17 @@ pt.cms.admin.post.view.PostEditViewController = function()
         var $dl = $("<dl><dt>首页栏目</dt> <dd></dd></dl>");
         me.$homeSubcategory = $("<select id=subcategory><option value=0>(空)</option></select>");
         $dl.children("dd").append(me.$homeSubcategory);
-        $sideBar.append($dl);
+        //$sideBar.append($dl);
         
         var $dl = $("<dl><dt>封面图片</dt> <dd></dd></dl>");
         me.$photoURL = $("<input type=text id=photoURL />");
         $dl.children("dd").append(me.$photoURL);
-        //$sideBar.append($dl);
+        $sideBar.append($dl);
         
         var $dl = $("<dl><dt>来源</dt> <dd></dd></dl>");
         me.$source = $("<input type=text id=source />");
         $dl.children("dd").append(me.$source);
-        $sideBar.append($dl);
+        //$sideBar.append($dl);
         
         var $dl = $("<dl><dt>发布者</dt> <dd></dd></dl>");
         me.$publisher = $("<label id=publisher />");
@@ -274,17 +281,17 @@ pt.cms.admin.post.view.PostEditViewController = function()
             me.$subcategory.val(0);
         }
         
-        if (me.data.homeSubcategoryId != null)
-        {
-            me.$homeSubcategory.val(me.data.homeSubcategoryId);
-        }
-        else
-        {
-            me.$homeSubcategory.val(0);
-        }
+       // if (me.data.homeSubcategoryId != null)
+       // {
+       //     me.$homeSubcategory.val(me.data.homeSubcategoryId);
+       // }
+       // else
+       // {
+       //     me.$homeSubcategory.val(0);
+       // }
         
-        me.$postStatus.val(me.data.postStatus);
-        me.$postType.val(me.data.postType);
+       // me.$postStatus.val(me.data.postStatus);
+       // me.$postType.val(me.data.postType);
         me.$source.val(me.data.source);
         me.$publisher.text(me.data.publisher);
         me.$photoURL.val(me.data.photoURL);
@@ -372,6 +379,12 @@ pt.cms.admin.post.view.PostEditViewController = function()
             return;
         }
         
+        post.price = me.$price.val();
+        if(post.price == 0)
+        {
+        	_showWarning("price", "请输入对应价格。");
+        	return;
+        }
         
         post.categoryId = me.$category.val();
         if (post.categoryId == 0)
@@ -386,16 +399,16 @@ pt.cms.admin.post.view.PostEditViewController = function()
             post.subcategoryId = null;
         }
         
-        post.homeSubcategoryId = me.$homeSubcategory.val();
-        if (post.homeSubcategoryId == 0)
-        {
-            post.homeSubcategoryId = null;
-        }
+        //post.homeSubcategoryId = me.$homeSubcategory.val();
+        //if (post.homeSubcategoryId == 0)
+        //{
+        //    post.homeSubcategoryId = null;
+        //}
         
         post.contentText = _formatContent(me.$content.val());
-        post.postStatus = parseInt(me.$postStatus.val());
-        post.postType = parseInt(me.$postType.val());
-        post.source = me.$source.val();
+        //post.postStatus = parseInt(me.$postStatus.val());
+        //post.postType = parseInt(me.$postType.val());
+        //post.source = me.$source.val();
         
         post.photoURL = _formatLink(me.$photoURL.val());
         if (post.photoURL == "")

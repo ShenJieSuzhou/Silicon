@@ -1,5 +1,4 @@
 package silicon.cms.common.entity;
-
 import silicon.ark.entity.StandardEntity;
 
 public class GoodsEntity extends StandardEntity
@@ -12,7 +11,6 @@ public class GoodsEntity extends StandardEntity
 	private String _text = null;
 	private String _categoryId = null;
 	private String _subcategoryId = null;
-	private String _orderId = null;
 	
 	public String getTitle()
 	{
@@ -93,15 +91,4 @@ public class GoodsEntity extends StandardEntity
 	{
 		return _subcategoryId;
 	}
-	
-	public void setOrderId(String m_orderId)
-	{
-		_orderId = m_orderId;
-	}
-	
-	public String getOrderId()
-	{
-		return _orderId;
-	}
-	
 }
