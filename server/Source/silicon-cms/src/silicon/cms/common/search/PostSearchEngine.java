@@ -282,7 +282,7 @@ public class PostSearchEngine {
 	{
 		Document document = new Document();
 		document.add(new Field("id", p_po.getId(), Store.YES, Index.NOT_ANALYZED));
-		document.add(new Field("updateTime", String.valueOf(p_po.getUpdateTime().getTime()), Store.YES, Index.NOT_ANALYZED));
+		//document.add(new Field("updateTime", String.valueOf(p_po.getUpdateTime().getTime()), Store.YES, Index.NOT_ANALYZED));
 		//if (StringUtil.notNullOrEmpty(p_po.getSource()))
 		//{
 		//	document.add(new Field("source", p_po.getSource(), Store.YES, Index.NOT_ANALYZED));

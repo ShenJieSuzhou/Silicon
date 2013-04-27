@@ -18,6 +18,7 @@ import silicon.ark.rest.AbstractResource;
 import silicon.ark.security.Membership;
 import silicon.cms.admin.service.PostAdminManager;
 import silicon.cms.common.entity.GoodsEntity;
+import silicon.cms.common.uuid.GenerateUUID;
 import silicon.common.SCLog;
 
 @Path("admin/post")
@@ -54,16 +55,6 @@ public class PostAdminResource extends AbstractResource
 		
 		_parsePostFromJSON(postJSON, post);
 		
-		//String _postCategoryId=post.getCategoryId();
-	
-		/*if(_postCategoryId.equals(Membership.getInstance().getCurrentUser().getUserRole()))
-		{
-			PostAdminManager.getInstance().savePost(post);
-		}
-		if(Membership.getInstance().getCurrentUser().isAdministator())
-		{
-			PostAdminManager.getInstance().savePost(post);
-		}*/
 		PostAdminManager.getInstance().savePost(post);
 		JSONObject jsonResult = _generateSimplePostJSON(post);
 		return responseWithJSONObject(jsonResult);
@@ -104,6 +95,8 @@ public class PostAdminResource extends AbstractResource
 		post.setSummary(postJSON.getString("summary"));
 		post.setCategoryId(postJSON.getString("categoryId"));
 		post.setPrice(postJSON.getString("price"));
+		String _uuid = GenerateUUID.getUUID();
+		post.setId(_uuid);
 		Date _date = new Date();
 		Timestamp _stamp = new Timestamp(_date.getTime());
 		post.setCreateTime(_stamp);
