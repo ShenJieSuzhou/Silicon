@@ -36,7 +36,7 @@ public class MembershipUser extends SCObject
 	{
 		if("STUG0000000000000000000000000003".equals(getString("user_role")))
 		{
-			return "administor";
+			return "administrator";
 		}
 		return null;
 	}

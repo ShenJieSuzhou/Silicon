@@ -268,9 +268,12 @@ pt.cms.admin.post.view.PostEditViewController = function()
         me.$title.blur();
         me.$summary.val(me.data.summary);
         me.$summary.blur();
+        me.$price.val(me.data.price);
+        me.$price.blur();
         
         me.$category.val(me.data.categoryId);
         _category_onchanged();
+       
         
         if (me.data.subcategoryId != null)
         {
@@ -424,15 +427,15 @@ pt.cms.admin.post.view.PostEditViewController = function()
                     $.extend(me.data, p_result);
                     
                     me.renderView();
-                    $pageController.rootViewControllers["post"].postDetailViewController.renderView();
+                    //$pageController.rootViewControllers["post"].postDetailViewController.renderView();
                     
-                    var listViewController = $pageController.rootViewControllers["post"].postListViewController;
-                    var postInList = listViewController.data[listViewController.view.selectedIndex];
-                    postInList.title = me.data.title;
-                    postInList.updateTime = me.data.updateTime;
-                    postInList.source = me.data.source;
-                    postInList.summary = me.data.summary;
-                    listViewController.reloadSelectedRow();
+                    //var listViewController = $pageController.rootViewControllers["post"].postListViewController;
+                    //var postInList = listViewController.data[listViewController.view.selectedIndex];
+                    //postInList.title = me.data.title;
+                    //postInList.updateTime = me.data.updateTime;
+                    //postInList.source = me.data.source;
+                    //postInList.summary = me.data.summary;
+                    //listViewController.reloadSelectedRow();
                     
                     if (!p_silentMode)
                     {
@@ -452,9 +455,8 @@ pt.cms.admin.post.view.PostEditViewController = function()
                     $.extend(me.data, post);
                     $.extend(me.data, p_result);
                     me.renderView();
-                    
-                    var listViewController = $pageController.rootViewControllers["post"].postListViewController;
-                    listViewController.insertItem(0, me.data);
+                    //var listViewController = $pageController.rootViewControllers["post"].postListViewController;
+                    //listViewController.insertItem(0, me.data);
                     
                     alert("您已成功创建当前操作的文章。");
                 })

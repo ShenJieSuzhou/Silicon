@@ -48,11 +48,15 @@ public class PostAdminResource extends AbstractResource
 	@Path("/")
 	public Response savePost(@FormParam("post") String m_postJSONString) throws JSONException
 	{
-		SCLog.info("enter savePost");
+		SCLog.info("enter savePost ...");
 		JSONObject postJSON = new JSONObject(m_postJSONString);
 		GoodsEntity post = new GoodsEntity();
 		post.setPublisher(Membership.getInstance().getCurrentUser().getUserRole());
-		
+		String _uuid = GenerateUUID.getUUID();
+		post.setId(_uuid);
+		Date _date = new Date();
+		Timestamp _stamp = new Timestamp(_date.getTime());
+		post.setCreateTime(_stamp);
 		_parsePostFromJSON(postJSON, post);
 		
 		PostAdminManager.getInstance().savePost(post);
@@ -95,11 +99,7 @@ public class PostAdminResource extends AbstractResource
 		post.setSummary(postJSON.getString("summary"));
 		post.setCategoryId(postJSON.getString("categoryId"));
 		post.setPrice(postJSON.getString("price"));
-		String _uuid = GenerateUUID.getUUID();
-		post.setId(_uuid);
-		Date _date = new Date();
-		Timestamp _stamp = new Timestamp(_date.getTime());
-		post.setCreateTime(_stamp);
+		
 		if (postJSON.getString("subcategoryId") != "null")
 		{
 			post.setSubcategoryId(postJSON.getString("subcategoryId"));

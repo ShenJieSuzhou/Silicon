@@ -67,7 +67,7 @@ private static List<String> IMAGE_EXTENSION_LIST = null;
 	private String _uploadFile(InputStream p_inputStream,
 			String p_folderName, String p_postId, String p_fileName) throws IOException
 	{
-		String folderPath = "/uploads/" + p_postId + "/" + p_folderName;
+		String folderPath = "\\uploads\\" + p_postId + "\\" + p_folderName;
 		File folder = new File(SCEnvironment.GetSharedPath(folderPath));
 		if (!folder.exists())
 		{
@@ -86,7 +86,7 @@ private static List<String> IMAGE_EXTENSION_LIST = null;
 		outputStream.flush();
 		outputStream.close();
 
-		return folderPath + "/" + p_fileName;
+		return folderPath + "\\" + p_fileName;
 	}
 	
 

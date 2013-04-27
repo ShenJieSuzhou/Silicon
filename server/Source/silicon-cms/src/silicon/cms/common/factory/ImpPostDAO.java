@@ -47,14 +47,8 @@ public class ImpPostDAO implements PostDAO
 				SCLog.info("GoodsEntity 获取数据库连接失败： 连接为空   T_T");
 			}
 			Statement _statement = _conn.createStatement();
-			if(_statement.execute(_sql))
-			{
-				SCLog.info("post save succeed!");			
-			}
-			else
-			{
-				SCLog.info("post save failed!");
-			}
+			_statement.executeUpdate(_sql);
+			SCLog.info("post saving executed!");
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -70,7 +64,7 @@ public class ImpPostDAO implements PostDAO
 	@Override
 	public GoodsEntity selectById(String m_postId) {
 		// TODO Auto-generated method stub
-		String _sql = "select * from st_goods where ST_CATEGORY_GOOD_ID = " + "'" + m_postId + "'";
+		String _sql = "select * from st_goods where GOODS_ID = " + "'" + m_postId + "'";
 		GoodsEntity _goods = new GoodsEntity();
 		try {
 			Connection _conn = DataBaseConn.getConnection();
@@ -154,18 +148,17 @@ public class ImpPostDAO implements PostDAO
 	public void update(GoodsEntity m_post) {
 		// TODO Auto-generated method stub
 		String _sql = "update st_goods set " +
-		"GOODS_ID = " + "'" + m_post.getId() + "'," +
-		"TITLE = " + "'" + m_post.getTitle() + "'," +
-		"SUMMARY = " + "'" + m_post.getSummary() + "'," +
-		"PRICE = " + "'" + m_post.getPrice() + "'," +
-		"PHOTO_URL = " + "'" + m_post.getPhotoURL() + "'," +
-		"CREATE_TIME = " + "'" + m_post.getCreateTime() + "'," +
-		"UPDATE_TIME = " + "'" + m_post.getUpdateTime() + "'," +
-		"ST_CATEGORY_GOOD_ID = " + "'" + m_post.getCategoryId() + "'," +
-		"ST_SUBCATEGORY_ID = " + "'" + m_post.getSubcategoryId() + "'," +
-		"PUBLISHER = " + "'" + m_post.getPublisher() + "'," +
-		"CONTEXT = " + "'" + m_post.getContentText() + "'" +
+		"TITLE = " + "'" + m_post.getTitle() + "', " +
+		"SUMMARY = " + "'" + m_post.getSummary() + "', " +
+		"PRICE = " + "'" + m_post.getPrice() + "', " +
+		"PHOTO_URL = " + "'" + m_post.getPhotoURL() + "', " +
+		"CREATE_TIME = " + "'" + m_post.getCreateTime() + "', " +
+		"ST_CATEGORY_GOOD_ID = " + "'" + m_post.getCategoryId() + "', " +
+		"ST_SUBCATEGORY_ID = " + "'" + m_post.getSubcategoryId() + "', " +
+		"PUBLISHER = " + "'" + m_post.getPublisher() + "', " +
+		"CONTEXT = " + "'" + m_post.getContentText() + "' " +
 		"where GOODS_ID = " + "'" + m_post.getId() + "'";
+		
 		try {
 			Connection _conn = DataBaseConn.getConnection();
 			if(_conn == null)
@@ -173,15 +166,8 @@ public class ImpPostDAO implements PostDAO
 				SCLog.info("GoodsEntity 获取数据库连接失败： 连接为空   T_T");
 			}
 			Statement _statement = _conn.createStatement();
-			if(_statement.execute(_sql))
-			{
-				SCLog.info("post save succeed!");
-			}
-			else
-			{
-				SCLog.info("post save failed!");
-			}
-			
+			_statement.execute(_sql);
+			SCLog.info("post updating executed! ");		
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

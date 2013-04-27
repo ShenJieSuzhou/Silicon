@@ -118,6 +118,7 @@ public class ImpUserDAO implements UserDAO
 			return null;
 		}
 		
+		UserEntity _UserEntity = new UserEntity();
 		try {
 			_conn = DataBaseConn.getConnection();
 			Statement _statement = _conn.createStatement();
@@ -125,14 +126,13 @@ public class ImpUserDAO implements UserDAO
 			ResultSet _rst = _statement.executeQuery(_sql);
 			if(_rst != null)
 			{
-				UserEntity _UserEntity = new UserEntity();
+				
 				_rst.next();
 				_UserEntity.setId(_rst.getString("user_id"));
 				_UserEntity.setLoginName(_rst.getString("login_name"));
 				_UserEntity.setPassWd(_rst.getString("login_pass"));
 				_UserEntity.setUserRole(_rst.getString("ST_USER_GROUP_USER_ID"));
 				_rst.close();
-				return _UserEntity;
 			}
 			else
 			{
@@ -148,7 +148,7 @@ public class ImpUserDAO implements UserDAO
 			e.printStackTrace();
 		}
 		
-		return null;
+		return _UserEntity;
 	}
 
 }
