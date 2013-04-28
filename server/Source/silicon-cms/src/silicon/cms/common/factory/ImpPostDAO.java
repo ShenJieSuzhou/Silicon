@@ -23,8 +23,6 @@ public class ImpPostDAO implements PostDAO
 	@Override
 	public GoodsEntity savePost(GoodsEntity m_post) {
 		// TODO Auto-generated method stub
-		//生成索引
-		PostSearchEngine.getInstance().buildIndex(m_post);
 		String _sql = "insert into st_goods(GOODS_ID, TITLE, SUMMARY, PRICE, PHOTO_URL, CREATE_TIME, ST_CATEGORY_GOOD_ID, " +
 		"ST_SUBCATEGORY_ID, PUBLISHER, CONTEXT)" +" values(" + 
 		"'" + m_post.getId() + "'," + 
@@ -57,6 +55,9 @@ public class ImpPostDAO implements PostDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		
+		//生成索引
+		PostSearchEngine.getInstance().buildIndex(m_post);
 		
 		return selectByPostId(m_post.getId(), m_post);
 	}

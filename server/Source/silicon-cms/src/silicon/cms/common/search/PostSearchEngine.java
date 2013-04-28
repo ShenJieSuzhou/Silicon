@@ -65,9 +65,7 @@ public class PostSearchEngine {
 		{
 			e.printStackTrace();
 		}
-		
-		
-		
+				
 		try
 		{
 			_indexReader = IndexReader.open(getIndexDirectory());
@@ -76,10 +74,7 @@ public class PostSearchEngine {
 		{
 			throw new SCRuntimeException(e1);
 		}
-		_indexSearcher = new IndexSearcher(_indexReader);
-		
-		
-		
+		_indexSearcher = new IndexSearcher(_indexReader);		
 		_queryParser = new MultiFieldQueryParser(Version.LUCENE_30, new String[] { "contentText", "title", "id" }, getDefaultAnalyzer());
 	}
 	
@@ -161,8 +156,6 @@ public class PostSearchEngine {
 		}
 	}
 	
-	
-	
 	public List<PostSearchResult> search(String p_keywords, int p_pageIndex, int p_pageSize, int p_maxCount, int p_fragmentSize)
 	{
 		if (p_pageIndex < 0)
@@ -205,20 +198,18 @@ public class PostSearchEngine {
 				hits = _indexSearcher.searchAfter(scoreDoc, query, p_pageSize);
 			}
 			
-			for (int i = 0; i < hits.scoreDocs.length && i < p_pageSize; i++) {  
-				  
+			for (int i = 0; i < hits.scoreDocs.length && i < p_pageSize; i++) 
+			{  				  
 				ScoreDoc scoreDoc = hits.scoreDocs[i];  
 		        Document doc = _indexSearcher.doc(scoreDoc.doc);
 		        PostSearchResult result = new PostSearchResult(doc);
-		        
-		        
+		        	        
 		        SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter(  
 		                "<span class='keyword'>", "</span>");		        
 		        Highlighter highlighter = new Highlighter(simpleHTMLFormatter, new QueryScorer(query));  
 		        Fragmenter fragmenter = new SimpleFragmenter(p_fragmentSize);  
 		        highlighter.setTextFragmenter(fragmenter);
-		        
-		        
+		        	        
 		        // 内容
 		        String content = doc.get("contentText");
 		        content = content.replaceAll((char)160 + "", "").replaceAll("　", "");
@@ -240,8 +231,7 @@ public class PostSearchEngine {
 						result.setSummary(content);
 					}
 				}
-				
-				
+							
 		        // 标题
 		        String title = doc.get("title");
 		        tokenStream = getDefaultAnalyzer().tokenStream("title", new StringReader(title));  
@@ -275,9 +265,6 @@ public class PostSearchEngine {
 		return search(p_keywords, 0, 0, p_maxCount, p_fragmentSize);
 	}
 	
-	
-
-
 	private Document _generateDocumentFromVO(GoodsEntity p_po)
 	{
 		Document document = new Document();
@@ -291,7 +278,6 @@ public class PostSearchEngine {
 		{
 			document.add(new Field("photoURL", p_po.getPhotoURL(), Store.YES, Index.NOT_ANALYZED));
 		}
-
 		
 		String text = _htmlToText(p_po.getContentText());
 		if (StringUtil.notNullOrEmpty(text))

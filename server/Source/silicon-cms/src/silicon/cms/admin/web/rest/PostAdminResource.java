@@ -1,7 +1,10 @@
 package silicon.cms.admin.web.rest;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.FormParam;
@@ -18,8 +21,13 @@ import silicon.ark.rest.AbstractResource;
 import silicon.ark.security.Membership;
 import silicon.cms.admin.service.PostAdminManager;
 import silicon.cms.common.entity.GoodsEntity;
+import silicon.cms.common.search.PostSearchEngine;
+import silicon.cms.common.search.PostSearchResult;
+import silicon.cms.common.serialization.PostJSONserializer;
 import silicon.cms.common.uuid.GenerateUUID;
+import silicon.cms.runtime.service.PostRuntimeManager;
 import silicon.common.SCLog;
+import silicon.common.util.DateUtil;
 
 @Path("admin/post")
 public class PostAdminResource extends AbstractResource
@@ -28,19 +36,71 @@ public class PostAdminResource extends AbstractResource
 	@Path("/")
 	public Response loadPost(
 			@QueryParam("categoryId") String m_categoryId,
-			@QueryParam("pageIndex") @DefaultValue("0") String m_pageIndex,
-			@QueryParam("pageSize") @DefaultValue("20") String m_pageSize
+			@QueryParam("keywords") String m_keywords,
+			@QueryParam("pageIndex") @DefaultValue("0") int m_pageIndex,
+			@QueryParam("pageSize") @DefaultValue("20") int m_pageSize
 			)
 	{
+		List<GoodsEntity> posts = null;
+		String _CurrentUser = Membership.getInstance().getCurrentUser().getUserRole();
 		
-		//List<GoodsEntity> _goods = null;
-		return null;
+		if (m_keywords != null)
+		{
+			if (m_keywords.length() == 32)
+			{
+				GoodsEntity post = PostAdminManager.getInstance().getPostById(m_keywords);
+				if (post != null)
+				{
+					posts = new ArrayList<GoodsEntity>();
+					posts.add(post);
+				}
+			}
+			if (posts == null)
+			{
+				List<PostSearchResult> docs = PostSearchEngine.getInstance().search(m_keywords, m_pageIndex, 1000, 500, 200);
+				return responseWithJSONArray(PostJSONserializer.toSimpleArray2(docs));
+			}
+		}
+		else  if(_CurrentUser.equals("Administrator"))
+		{    		
+			posts = PostAdminManager.getInstance().loadPostsByCategory("", m_pageIndex, m_pageSize);		
+		}
+		else 
+		{
+			posts = PostRuntimeManager.getInstance().loadLatestPostsByCategory(m_categoryId, false, null, m_pageSize);
+		}
+		return responseWithJSONArray(PostJSONserializer.toSimpleArray(posts));
 	}
 	
 	@GET
 	@Path("/{id}")
 	public Response getPost(@PathParam("id") String m_id)
 	{
+		/*GoodsEntity post = PostAdminManager.getInstance().getPostById(m_id);
+		
+		if((post.getCategoryId()).equals(Membership.getInstance().getCurrentUser().getUserRole()))
+		{
+			 post = PostAdminManager.getInstance().getPostById(m_id);
+		}
+		else
+		{
+			post=null;
+		}
+		if("Administrator".equals( Membership.getInstance().getCurrentUser().getUserRole() ))
+		{
+			 post = PostAdminManager.getInstance().getPostById(m_id);
+		}	
+		
+		String ifModifiedSince = getHttpHeader("If-Modified-Since");
+		if (ifModifiedSince != null)
+		{
+			String lastModified = DateUtil.formatGMTDate(post.getUpdateTime());
+			if (lastModified.equals(ifModifiedSince))
+			{
+				return responseNotModified();
+			}
+		}
+		return responseWithJSONObject(PostJSONserializer.toDetailObject(post), post.getUpdateTime());*/
 		return null;
 	}
 	
@@ -88,7 +148,20 @@ public class PostAdminResource extends AbstractResource
 	@Path("/{id}")
 	public Response deletePost(@PathParam("id") String m_id)
 	{
-		return null;
+		GoodsEntity post = PostAdminManager.getInstance().getPostById(m_id);
+		
+		
+		if((post.getCategoryId()).equals(Membership.getInstance().getCurrentUser().getUserRole()))
+		
+		{
+			PostAdminManager.getInstance().deletePost(m_id);
+		}
+		
+		if("Administrator".equals( Membership.getInstance().getCurrentUser().getUserRole() ))
+		{
+			PostAdminManager.getInstance().deletePost(m_id);
+		}	
+		return responseOK();
 	}
 	
 	private void _parsePostFromJSON(JSONObject postJSON, GoodsEntity post)

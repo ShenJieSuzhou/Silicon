@@ -353,7 +353,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
         var $li = $("<li> <span id='name'/> <span id='size'/> <div id='delete' title='删除附件'/> </li>");
         $li.attr("id", p_attachment.id);
         $li.children("#name").text(p_attachment.name).attr("title", p_attachment.name);
-        $li.children("#size").text(_formatFileSize(p_attachment.size)).attr("title", p_attachment.size.toString().replace(/(\d\d\d)/g,function($0,$1){return $1+","}) + " 个字节");
+        $li.children("#size").text(_formatFileSize(p_attachment.size)).attr("title", p_attachment.size.toString().replace(/(\d\d\d)/g,function($0,$1){return $1+",";}) + " 个字节");
         me.$attachmentList.append($li);
     };
     
@@ -427,15 +427,15 @@ pt.cms.admin.post.view.PostEditViewController = function()
                     $.extend(me.data, p_result);
                     
                     me.renderView();
-                    //$pageController.rootViewControllers["post"].postDetailViewController.renderView();
+                    $pageController.rootViewControllers["post"].postDetailViewController.renderView();
                     
-                    //var listViewController = $pageController.rootViewControllers["post"].postListViewController;
-                    //var postInList = listViewController.data[listViewController.view.selectedIndex];
-                    //postInList.title = me.data.title;
-                    //postInList.updateTime = me.data.updateTime;
-                    //postInList.source = me.data.source;
-                    //postInList.summary = me.data.summary;
-                    //listViewController.reloadSelectedRow();
+                    var listViewController = $pageController.rootViewControllers["post"].postListViewController;
+                    var postInList = listViewController.data[listViewController.view.selectedIndex];
+                    postInList.title = me.data.title;
+                    postInList.updateTime = me.data.updateTime;
+                    postInList.source = me.data.source;
+                    postInList.summary = me.data.summary;
+                    listViewController.reloadSelectedRow();
                     
                     if (!p_silentMode)
                     {
@@ -455,8 +455,8 @@ pt.cms.admin.post.view.PostEditViewController = function()
                     $.extend(me.data, post);
                     $.extend(me.data, p_result);
                     me.renderView();
-                    //var listViewController = $pageController.rootViewControllers["post"].postListViewController;
-                    //listViewController.insertItem(0, me.data);
+                    var listViewController = $pageController.rootViewControllers["post"].postListViewController;
+                    listViewController.insertItem(0, me.data);
                     
                     alert("您已成功创建当前操作的文章。");
                 })
@@ -609,7 +609,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
         var prefix = "\"http://" + window.location.host + (window.location.port ? (":" + window.location.port) : "") + "/";
         prefix = prefix.replace(/\./g, "\\.");
         var result = p_content.replace(new RegExp(prefix,"ig"), "\"/");
-        console.log(result)
+        console.log(result);
         return result;
     }
     
@@ -618,7 +618,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
         var prefix = "http://" + window.location.host + (window.location.port ? (":" + window.location.port) : "") + "/";
         prefix = prefix.replace(/\./g, "\\.");
         var result = p_content.replace(new RegExp(prefix,"ig"), "/");
-        console.log(result)
+        console.log(result);
         return result;
     }
     
