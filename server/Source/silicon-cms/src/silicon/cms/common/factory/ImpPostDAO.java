@@ -86,7 +86,7 @@ public class ImpPostDAO implements PostDAO
 			_goods.setPrice(_rs.getString("PRICE"));
 			_goods.setPhotoURL(_rs.getString("PHOTO_URL"));
 			_goods.setPublisher(_rs.getString("PUBLISHER"));
-			_goods.setTitle(_rs.getString("CONTEXT"));
+			_goods.setContentText(_rs.getString("CONTEXT"));
 			_goods.setCategoryId(_rs.getString("ST_CATEGORY_GOOD_ID"));
 			_goods.setSubcategoryId(_rs.getString("ST_SUBCATEGORY_ID"));
 			_goods.setCreateTime(_rs.getDate("CREATE_TIME"));
@@ -125,7 +125,7 @@ public class ImpPostDAO implements PostDAO
 				_goods.setPrice(_rs.getString("PRICE"));
 				_goods.setPhotoURL(_rs.getString("PHOTO_URL"));
 				_goods.setPublisher(_rs.getString("PUBLISHER"));
-				_goods.setTitle(_rs.getString("CONTEXT"));
+				_goods.setContentText(_rs.getString("CONTEXT"));
 				_goods.setCategoryId(_rs.getString("ST_CATEGORY_GOOD_ID"));
 				_goods.setSubcategoryId(_rs.getString("ST_SUBCATEGORY_ID"));
 				_goods.setCreateTime(_rs.getDate("CREATE_TIME"));
@@ -185,14 +185,8 @@ public class ImpPostDAO implements PostDAO
 		try {
 			Connection _conn = DataBaseConn.getConnection();
 			Statement _statement = _conn.createStatement();
-			if(_statement.execute(_sql))
-			{
-				SCLog.info("post delete succeed!");
-			}
-			else
-			{
-				SCLog.info("post delete failed!");
-			}
+			_statement.execute(_sql);
+			SCLog.info("post delete executed!");
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -226,7 +220,7 @@ public class ImpPostDAO implements PostDAO
 			_goods.setPrice(_rs.getString("PRICE"));
 			_goods.setPhotoURL(_rs.getString("PHOTO_URL"));
 			_goods.setPublisher(_rs.getString("PUBLISHER"));
-			_goods.setTitle(_rs.getString("CONTEXT"));
+			_goods.setContentText(_rs.getString("CONTEXT"));
 			_goods.setCategoryId(_rs.getString("ST_CATEGORY_GOOD_ID"));
 			_goods.setSubcategoryId(_rs.getString("ST_SUBCATEGORY_ID"));
 			_goods.setCreateTime(_rs.getDate("CREATE_TIME"));

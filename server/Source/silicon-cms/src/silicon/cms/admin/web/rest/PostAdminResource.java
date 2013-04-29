@@ -61,7 +61,7 @@ public class PostAdminResource extends AbstractResource
 				return responseWithJSONArray(PostJSONserializer.toSimpleArray2(docs));
 			}
 		}
-		else  if(_CurrentUser.equals("Administrator"))
+		else  if(_CurrentUser.equals("administrator"))
 		{    		
 			posts = PostAdminManager.getInstance().loadPostsByCategory("", m_pageIndex, m_pageSize);		
 		}
@@ -76,20 +76,20 @@ public class PostAdminResource extends AbstractResource
 	@Path("/{id}")
 	public Response getPost(@PathParam("id") String m_id)
 	{
-		/*GoodsEntity post = PostAdminManager.getInstance().getPostById(m_id);
+		if(m_id == null)
+		{
+			return null;
+		}
 		
-		if((post.getCategoryId()).equals(Membership.getInstance().getCurrentUser().getUserRole()))
+		GoodsEntity post = null;
+		if("administrator".equals( Membership.getInstance().getCurrentUser().getUserRole() ))
 		{
 			 post = PostAdminManager.getInstance().getPostById(m_id);
 		}
 		else
 		{
-			post=null;
+			post = null;
 		}
-		if("Administrator".equals( Membership.getInstance().getCurrentUser().getUserRole() ))
-		{
-			 post = PostAdminManager.getInstance().getPostById(m_id);
-		}	
 		
 		String ifModifiedSince = getHttpHeader("If-Modified-Since");
 		if (ifModifiedSince != null)
@@ -100,8 +100,7 @@ public class PostAdminResource extends AbstractResource
 				return responseNotModified();
 			}
 		}
-		return responseWithJSONObject(PostJSONserializer.toDetailObject(post), post.getUpdateTime());*/
-		return null;
+		return responseWithJSONObject(PostJSONserializer.toDetailObject(post), post.getUpdateTime());
 	}
 	
 	@POST
@@ -147,16 +146,7 @@ public class PostAdminResource extends AbstractResource
 	@DELETE
 	@Path("/{id}")
 	public Response deletePost(@PathParam("id") String m_id)
-	{
-		GoodsEntity post = PostAdminManager.getInstance().getPostById(m_id);
-		
-		
-		if((post.getCategoryId()).equals(Membership.getInstance().getCurrentUser().getUserRole()))
-		
-		{
-			PostAdminManager.getInstance().deletePost(m_id);
-		}
-		
+	{	
 		if("Administrator".equals( Membership.getInstance().getCurrentUser().getUserRole() ))
 		{
 			PostAdminManager.getInstance().deletePost(m_id);

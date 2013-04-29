@@ -32,6 +32,7 @@ pt.cms.admin.post.view.PostDetailViewController = function()
     
     me.loadData = function(p_id)
     {
+    	alert("dddddd");
         me.restClient.GET("admin/post/" + p_id + "?rnd=" + Math.random())
             .success(function(p_result){
                 me.setData(p_result);

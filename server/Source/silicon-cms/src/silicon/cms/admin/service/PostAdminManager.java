@@ -40,10 +40,24 @@ public class PostAdminManager {
 	
 	public List<GoodsEntity> loadPostsByCategory(String m_categoryId, int p_pageIndex, int p_pageSize)
 	{
-		String _sql = "select * from st_goods";
+		String _sql = null;
+		
+		if(p_pageIndex < 0)
+		{
+			return null;
+		}
+		if(p_pageIndex == 0)
+		{
+			_sql = "select * from st_goods limit 0," + String.valueOf(p_pageSize);
+		}
+		else
+		{
+			_sql = "select * from st_goods limit 0," + String.valueOf(p_pageSize * p_pageIndex);
+		}
+		
 		if(!m_categoryId.equals(""))
 		{
-			 _sql = "select * from st_goods where ST_CATEGORY_GOOD_ID = " + "'" + m_categoryId + "'";
+			 _sql += " where ST_CATEGORY_GOOD_ID = " + "'" + m_categoryId + "'";
 		}
 		
 		List<GoodsEntity> poList = getPostDAO().query(_sql);
