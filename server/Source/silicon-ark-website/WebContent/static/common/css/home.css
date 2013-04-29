@@ -1,0 +1,102 @@
+#header
+{
+	width: 100%;
+	height: 65px;
+	background: url(../images/headerbk.gif) repeat;
+}
+
+#container
+{
+	width: 987px;
+	height: 65px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#container > #logo
+{
+	float: left;
+	height: 65px;
+	width: 70px;
+	display: block;	
+}
+
+#container > #logo img
+{
+	margin-top: 8px;
+}
+
+#container > #cursor
+{
+	display: block;
+	width: 200px;
+	height: 65px;
+	float: left;
+}
+
+#container > #searchBar
+{
+	display: block;
+	float: left;
+	margin-left: 180px;
+	margin-top: 19px; 
+	height: 27px;
+	width: 240px;
+}
+
+#container > #searchBar > #search
+{
+	height: 27px;
+}
+
+#container > #searchBar > #search fieldset
+{
+	border: none;
+	background-color: #deeaee;
+	height: 27px;
+}
+
+#container > #searchBar > #search  #input_search
+{
+	color: #aaa;
+	width: 180px;
+	height: 27px;
+	line-height: 17px;
+	border: none;
+	background-color: #deeaee;
+	padding: 5px 30px 5px 5px;
+	margin-top: -4px;
+	font-size: 12px;
+}
+
+#container > #searchBar > #search #input_submit
+{
+	margin-top: -4px;
+	padding: 0;
+	float: right;
+}
+
+#container > #verification
+{
+	display: block;
+	float: left;
+	margin-left: 20px;
+	margin-top: 19px;
+	width: 100px;
+	height: 27px;
+	color: #fff;
+}
+
+#container > #verification p
+{
+	margin: 3px 0 0 0;
+	padding: 0;
+}
+
+#verification a
+{
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+}
