@@ -81,7 +81,7 @@
 {
 	display: block;
 	float: left;
-	margin-left: 20px;
+	margin-left: 45px;
 	margin-top: 19px;
 	width: 100px;
 	height: 27px;
@@ -99,4 +99,103 @@
 	color: #fff;
 	text-decoration: none;
 	font-size: 14px;
+}
+
+#container > #social
+{
+	display: block;
+	float: right;
+	margin-top: 22px;
+	width: 150px;
+	height: 27px;
+}
+
+#container > #social #socialIcon
+{
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#container > #social #socialIcon li
+{
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#content
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	padding: 0;
+	position: relative;
+	height: 900px;
+	width: 987px;
+}
+
+#sideBar
+{
+	display: block;
+	float: left;
+	width: 250px;
+	height: 600px;
+}
+
+#sideBar p
+{
+	font-size: 18px;
+	color: #1b789e;
+	font-family: 微软雅黑;
+}
+
+#sideBar #flowers
+{
+	display: block;
+	width: 250px;
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+
+#footer
+{
+	display: block;
+	border-top: 1px #cfcfcf solid;
+	margin-left: auto;
+	margin-right: auto;
+	height: 50px;
+	width: 987px;
+}
+
+#detail
+{
+	display: block;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	list-style: none;
+	width: 400px;
+}
+
+#detail li
+{
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#detail li a
+{
+	color: #afafaf;
+	text-decoration: none;
+}
+
+#detail li a:hover
+{
+	color: #000;
+	text-decoration: none;
 }

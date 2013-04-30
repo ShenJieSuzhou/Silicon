@@ -36,8 +36,39 @@
 		<div id="verification">
 			<p><a href="">登录</a> / <a href="">注册</a></p>
 		</div>
-		<div di="social"></div>
+		<div id="social">
+			<ul id="socialIcon">
+				<li><a href="https://twitter.com/i/#!/welcome"><img src="/static/common/images/fb.png"/></a></li>
+				<li><a href="https://twitter.com/i/#!/welcome"><img src="/static/common/images/twitter.png"/></a></li>
+				<li><a href="https://twitter.com/i/#!/welcome"><img src="/static/common/images/share.png"/></a></li>
+			</ul>
+		</div>
 	</div>
+</div>
+
+<div id="content">
+	<div id="sideBar">
+		<div id="flowers">
+			<p>按产品选购</p>
+
+		</div>
+		<div id="festival">
+			<p>按节日选购</p>
+		</div>
+		<div id="occasion">
+			<p>按场合选购</p>
+		</div>
+	</div>
+</div>
+
+<div id="footer">
+	<ul id="detail">
+		<li><a href="">关于我们</a></li>
+		<li><a href="">招贤纳士</a><li>
+		<li><a href="">网站地图</a></li>
+		<li><a href="">@新浪微博</a></li>
+		<li><a href="">广告联系</a></li>
+	</ul>
 </div>
 
 </body>
