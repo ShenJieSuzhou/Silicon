@@ -1,5 +1,7 @@
 package silicon.cms.runtime.service;
 
+import java.util.List;
+
 import silicon.cms.common.dao.CategoryDAO;
 import silicon.cms.common.dao.SubCategoryDAO;
 import silicon.cms.common.entity.CategoryEntity;
@@ -46,15 +48,16 @@ public class CategoryRuntimeManager {
 		return _subCategoryDAO;
 	}
 	
-	public CategoryEntity getCategory(String m_categoryId)
+	public List<CategoryEntity> getCategory()
 	{
-		return getCategoryDAO().queryEntityById(m_categoryId);
+		String _sql ="select * from st_category";
+		return getCategoryDAO().query(_sql);
 	}
 	
-	public SubCategoryEntity getSubCategory(String m_subCategoryId)
+	public List<SubCategoryEntity> getSubCategory(String m_CategoryId)
 	{
-		//String _sql = "select * from st_subcategory where ST_CATEGORY_CATEGORY_ID = " + "'" + m_subCategoryId + "'";
-		return null;
+		String _sql = "select * from st_subcategory where ST_CATEGORY_CATEGORY_ID = " + "'" + m_CategoryId + "'";
+		return getSubCategoryDAO().query(_sql);
 	}
 	
 }

@@ -3,6 +3,7 @@
 	width: 100%;
 	height: 65px;
 	background: url(../images/headerbk.gif) repeat;
+	border-bottom: 2px #c9c9c9 solid;
 }
 
 #container
@@ -123,41 +124,6 @@
 	float: left;
 	margin-left: 10px;
 	margin-right: 10px;
-}
-
-#content
-{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 10px;
-	padding: 0;
-	position: relative;
-	height: 900px;
-	width: 987px;
-}
-
-#sideBar
-{
-	display: block;
-	float: left;
-	width: 250px;
-	height: 600px;
-}
-
-#sideBar p
-{
-	font-size: 18px;
-	color: #1b789e;
-	font-family: 微软雅黑;
-}
-
-#sideBar #flowers
-{
-	display: block;
-	width: 250px;
-	height: auto;
-	margin: 0;
-	padding: 0;
 }
 
 #footer

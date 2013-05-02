@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+#content
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	padding: 0;
+	position: relative;
+	height: 900px;
+	width: 987px;
+}
+
+#sideBar
+{
+	display: block;
+	float: left;
+	width: 220px;
+	height: 600px;
+	border-right: 1px #c9c9c9 solid;
+}
+
+#sideBar p
+{
+	font-size: 17px;
+	color: #1b789e;
+	font-family: 微软雅黑;
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+
+#sideBar a
+{
+	display: block;
+	color: #fff;
+	font-size: 14px;
+	text-decoration: none;
+	background: #8cc4db;
+	padding: 2px 6px 2px 6px;
+	margin: 0 0 5px 0;
+	border-right: 1px #529ebe solid;
+	border-bottom: 1px #529ebe solid;
+}
+
+#sideBar a:hover
+{
+	background: #3b92b6;
+}
+#sideBar #flowers
+{
+	display: block;
+	width: 250px;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+#flowers > #flowerTag
+{
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#flowers > #flowerTag li
+{
+	float: left;
+	margin-right: 10px;
+	padding: 0;
+}
+
+#temp
+{
+	display: block;
+	clear: both;
+}
+
+#festival 
+{
+	display: block;
+	width: 250px;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+#festival > #festivalTag
+{
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#festival > #festivalTag li
+{
+	float: left;
+	margin-right: 10px;
+	padding: 0;
+}
+
+#occasion
+{
+	display: block;
+	width: 250px;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+#occasion > #occasionTag
+{
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#occasion > #occasionTag li
+{
+	float: left;
+	margin-right: 10px;
+	padding: 0;
+}
