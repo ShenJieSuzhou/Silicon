@@ -4,7 +4,6 @@
 <%
 request.setCharacterEncoding("utf-8");
 %>
-<script src = "/static/common/scripts/lib/jquery.min.js" type = "text/javascript"></script>
 <link href="/static/common/css/common.css" rel="stylesheet"></link>
 <link href="/static/common/css/home.css" rel="stylesheet"></link>
 
@@ -14,7 +13,7 @@ request.setCharacterEncoding("utf-8");
 			<a href=""><img src="/static/common/images/homelogo.png" title="谢耳朵的小店"/></a>
 		</div>
 		<div id="cursor">
-			<img src="/static/common/images/2bname.png" />
+			<img src="/static/common/images/sbname.png" />
 		</div>
 		<div id="searchBar">
 			<form id="search" meathod="post">

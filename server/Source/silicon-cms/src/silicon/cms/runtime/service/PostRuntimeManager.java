@@ -43,7 +43,7 @@ public class PostRuntimeManager {
 	{
 		GoodsEntity _goods = getGoods(m_postId);
 		String _categoryId = _goods.getCategoryId();
-		if(_categoryId.equals(m_categoryId))
+		if(!_categoryId.equals(m_categoryId))
 		{
 			return null;
 		}
@@ -86,7 +86,15 @@ public class PostRuntimeManager {
 		List<GoodsEntity> _list = getPostDAO().query(_sql);
 		return _list;
 	}
-	
+		
+	public List<GoodsEntity> loadAllPosts(int pageIndex, int pageSize)
+	{
+		int _cursor = pageIndex * pageSize;
+		int _offset = pageSize;
+		String _sql = "select * from st_goods limit "  +String.valueOf(_cursor) + "," + String.valueOf(_offset);
+		List<GoodsEntity> _list = getPostDAO().query(_sql);
+		return _list;
+	}  
 	
 	
 }

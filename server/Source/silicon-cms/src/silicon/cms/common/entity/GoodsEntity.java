@@ -1,5 +1,6 @@
 package silicon.cms.common.entity;
 import silicon.ark.entity.StandardEntity;
+import silicon.cms.common.util.URLResolver;
 
 public class GoodsEntity extends StandardEntity
 {
@@ -90,5 +91,10 @@ public class GoodsEntity extends StandardEntity
 	public String getSubcategoryId()
 	{
 		return _subcategoryId;
+	}
+	
+	public String getLink()
+	{
+		return URLResolver.getPostLink(getId(), getCategoryId());
 	}
 }

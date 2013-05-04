@@ -7,7 +7,7 @@ public class URLResolver {
 	
 	public static String getPostLink(String m_id, String m_category)
 	{
-		return PathUtil.CombineURLPath(SCEnvironment.GetWebContextPath(), m_id, m_category, "html");
+		return PathUtil.CombineURLPath(SCEnvironment.GetWebContextPath(), m_category, m_id + ".html");
 	}
 	
 	public static String getAbsolutePostLink(String m_id, String m_category)
