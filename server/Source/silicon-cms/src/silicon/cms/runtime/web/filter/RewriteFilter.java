@@ -18,7 +18,6 @@ public class RewriteFilter implements Filter
 	private static Pattern _postURLPattern = null;
 	private static Pattern _moreCategoryURLPattern = null;
 	private static Pattern _moreSubcategoryURLPattern = null;
-	private static Pattern _viewCategoryURLPattern=null;
 	private static Pattern _allURLPattern = null;
 	
 	@Override
@@ -26,11 +25,10 @@ public class RewriteFilter implements Filter
 	{
 		if (_postURLPattern == null)
 		{
-			_postURLPattern = Pattern.compile("/([a-z]+)/([a-f0-9]{32}).html");			
+			_postURLPattern = Pattern.compile("/([A-Z0-9]{32})/([a-z0-9]{31}).html");			
 			_moreCategoryURLPattern = Pattern.compile("/([a-z]+)/more/([0-9]*)");
-			_moreSubcategoryURLPattern = Pattern.compile("/([a-z]+)/([A-Za-z0-9]{32})/more/([0-9]*)");
-			_allURLPattern = Pattern.compile("/([0-9]+)");
-			_viewCategoryURLPattern=Pattern.compile("/introduce/([0-9]*)");		
+			_moreSubcategoryURLPattern = Pattern.compile("/([A-Z0-9]{32})/([A-Z0-9]{32})/more/([0-9]*)");
+			_allURLPattern = Pattern.compile("/([0-9]+)");	
 		}
 	}
 
@@ -94,18 +92,6 @@ public class RewriteFilter implements Filter
 			String categoryId = matcher.group(1);
 			String subcategoryId = matcher.group(2);
 			request.getRequestDispatcher("/more.jsp?categoryId=" + categoryId + "&subcategoryId=" + subcategoryId + "&pageIndex=1").forward(request, response);
-		}
-		else  if ((matcher = _viewCategoryURLPattern.matcher(uri)).find())
-			
-		{ 
-			String categoryId = "introduce";
-			int pageIndex = 1;
-			try
-			{
-				pageIndex = Integer.parseInt(matcher.group(1));
-			}
-			catch (Exception e) {}
-			request.getRequestDispatcher("/introduce/view.jsp?categoryId=" + categoryId + "&pageIndex=" + pageIndex).forward(request, response);		
 		}
 		else
 		{

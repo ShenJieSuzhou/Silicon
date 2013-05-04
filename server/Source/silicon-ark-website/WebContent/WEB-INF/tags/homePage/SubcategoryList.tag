@@ -23,7 +23,7 @@
 <% for(SubCategoryEntity entity : subs) {%>
 
 <li id="<%= entity.getId() %>">
-	<a href="">
+	<a href="/<%= categoryId%>/<%= entity.getId()%>/more">
 	  <%= entity.getSubCategoryName()%>
 	</a>
 </li>

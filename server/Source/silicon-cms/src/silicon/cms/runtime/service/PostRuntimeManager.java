@@ -91,10 +91,19 @@ public class PostRuntimeManager {
 	{
 		int _cursor = pageIndex * pageSize;
 		int _offset = pageSize;
-		String _sql = "select * from st_goods limit "  +String.valueOf(_cursor) + "," + String.valueOf(_offset);
+		String _sql = "select * from st_goods limit " +String.valueOf(_cursor) + "," + String.valueOf(_offset);
 		List<GoodsEntity> _list = getPostDAO().query(_sql);
 		return _list;
 	}  
 	
+	public List<GoodsEntity> loadPostsBySubcategoryId(String m_subcategory, int pageIndex, int pageSize)
+	{
+		int _cursor = pageIndex * pageSize;
+		int _offset = pageSize;
+		String _sql = "select * from st_goods where ST_SUBCATEGORY_ID = " + "'" + m_subcategory 
+			+ "'" + " limit "  +String.valueOf(_cursor) + "," + String.valueOf(_offset);
+		List<GoodsEntity> _list = getPostDAO().query(_sql);
+		return _list;
+	}
 	
 }

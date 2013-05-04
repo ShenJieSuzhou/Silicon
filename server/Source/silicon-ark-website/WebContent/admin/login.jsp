@@ -23,7 +23,7 @@ var pageController = new pt.cms.admin.security.page.LoginPageController();
 			<img src="images/logo.png"/>
 		</div>	
 		<div id="board">
-			<form id="security" method="post" action="${pageContext.request.contextPath}/api/0/security/login" enctype="application/x-www-form-urlencoded">
+			<form id="security" method="post" action="${pageContext.request.contextPath}/api/silicon/security/login" enctype="application/x-www-form-urlencoded">
 				<ul id="login">
 					<li id="user"><input id="userName" type="text" name="loginName" /></li>
 					<li id="pwd"><input id="psw" type="password" name="password" /></li>

@@ -6,6 +6,10 @@ request.setCharacterEncoding("utf-8");
 %>
 <link href="/static/common/css/common.css" rel="stylesheet"></link>
 <link href="/static/common/css/home.css" rel="stylesheet"></link>
+<script src = "/static/common/scripts/lib/jquery.min.js" type = "text/javascript"></script>
+<link href="/static/common/css/main.css" rel="stylesheet"></link>
+<link href="/static/common/css/more.css" rel="stylesheet"/>
+<script src="/static/common/scripts/src/jquery.pear.js" type="text/javascript"></script>
 
 <div id="header">
 	<div id="container">

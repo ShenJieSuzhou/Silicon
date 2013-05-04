@@ -43,7 +43,7 @@ public class SecurityFilter implements Filter
 				!fileName.endsWith(".png") &&
 				!fileName.endsWith(".jpg"))
 			{
-				if(path.equals(_loginPath) || path.indexOf("/api/0/admin/upload") != -1)
+				if(path.equals(_loginPath) || path.indexOf("/api/silicon/admin/upload") != -1)
 				{
 					m_chain.doFilter(request, response);
 					return;
@@ -77,8 +77,7 @@ public class SecurityFilter implements Filter
 						response.setStatus(403);
 						return;
 					}
-				}
-				
+				}				
 			}
 			else
 			{

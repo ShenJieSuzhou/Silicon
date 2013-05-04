@@ -13,6 +13,9 @@ GoodsEntity goods = manager.getGoods(postId, categoryId);
 <div id="<%= id%>" class="goodsDetail">
 <h1 id="title"><%= goods.getTitle() %></h1>
 <% if(goods.getSummary() != null){%>
-<div id="summary"><%= goods.getContentText() %>></div>
+<div id="summary"><%= goods.getSummary() %></div>
+<%} %>
+<% if(goods.getContentText() != null) {%>
+<div id="content"><%= goods.getContentText()%></div>
 <%} %>
 </div>

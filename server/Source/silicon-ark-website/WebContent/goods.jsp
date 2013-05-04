@@ -20,7 +20,7 @@ else
 if(goods == null)
 {
 	response.setStatus(404);
-	return null;
+	return;
 }
 
 %>    
@@ -33,13 +33,13 @@ if(goods == null)
 <link href="/static/common/css/goods.css" rel="stylesheet"></link>
 </head>
 <body>
-<SC:Header path="<%= categoryId %>"/>
+<SC:Header/>
 	<div id="content">
 		<SC:sideNavi></SC:sideNavi>
-	<div id="product">
-		<SC:GoodsDetail id="goodsDetail" postId="<%= id %>" categoryId="<%= categoryId%>"/>
-	</div>
+		<div id="product">
+			<SC:GoodsDetail id="goodsDetail" postId="<%= id %>" categoryId="<%= categoryId%>"/>
+		</div>
 </div>
-<SC:Footer path="<%= categoryId %>"/>
+<SC:Footer/>
 </body>
 </html>

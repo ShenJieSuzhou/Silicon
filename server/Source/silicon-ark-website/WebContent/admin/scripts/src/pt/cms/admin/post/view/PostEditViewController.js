@@ -59,7 +59,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
         setTimeout(function(){
             me.$uploadImageButton = me.toolbar.$element.find("#uploadImage"); 
             me.$uploadImageButton.uploadify({
-                "uploader"          : "/api/0/admin/upload/image",
+                "uploader"          : "/api/silicon/admin/upload/image",
                 "swf"               : $mappath("~/scripts/lib/uploadify/uploadify.swf"),
                 "fileObjName"       : "file",
                 "fileTypeExts"      : "*.jpg; *.png; *.gif",
@@ -78,7 +78,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
             
             me.$uploadAttachmentButton = me.toolbar.$element.find("#uploadAttachment");
             me.$uploadAttachmentButton.uploadify({
-                "uploader"      : "/api/0/admin/upload/attachment",
+                "uploader"      : "/api/silicon/admin/upload/attachment",
                 "swf"           : $mappath("~/scripts/lib/uploadify/uploadify.swf"),
                 "fileObjName"   : "file",
                 "buttonText"    : "上传附件",

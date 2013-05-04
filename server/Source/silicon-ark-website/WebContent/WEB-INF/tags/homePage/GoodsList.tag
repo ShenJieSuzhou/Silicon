@@ -37,7 +37,7 @@ PostRuntimeManager manager = PostRuntimeManager.getInstance();
 List<GoodsEntity> posts = null;
 if(StringUtil.notNullOrEmpty(subcategoryId))
 {
-	
+	posts = manager.loadPostsBySubcategoryId(subcategoryId, pageIndex, pageSize);
 }
 else if(StringUtil.notNullOrEmpty(categoryId))
 {

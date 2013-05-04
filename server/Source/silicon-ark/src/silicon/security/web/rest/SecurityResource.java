@@ -22,6 +22,7 @@ public class SecurityResource extends AbstractResource
 			@FormParam("loginPassword") String m_password
 			)
 	{
+		SCLog.info("enter security...");
 		Membership.getInstance();
 		if(Membership.validateUser(m_loginName, m_password) != null)
 		{

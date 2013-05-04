@@ -5,7 +5,7 @@ pt.cms.admin.rest.RESTClient = function()
     var me = $extend(MXComponent);
     var base = {};
 
-    me.baseUrl = "/api/0/";
+    me.baseUrl = "/api/silicon/";
     
     me.GET = function(p_path, p_data)
     {

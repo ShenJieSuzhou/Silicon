@@ -33,7 +33,7 @@
   </servlet>
   <servlet-mapping>
       <servlet-name>RESTfulServiceServlet</servlet-name>
-      <url-pattern>/api/0/*</url-pattern>
+      <url-pattern>/api/silicon/*</url-pattern>
   </servlet-mapping>
    
   <filter>
@@ -61,7 +61,7 @@
   </filter-mapping>
   <filter-mapping>
   	<filter-name>CMSSecurityFilter</filter-name>
-  	<url-pattern>/api/0/admin/*</url-pattern>
+  	<url-pattern>/api/silicon/admin/*</url-pattern>
   </filter-mapping>
   
   <listener>

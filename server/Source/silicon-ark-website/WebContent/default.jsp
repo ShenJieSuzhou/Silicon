@@ -14,10 +14,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>谢耳朵的鲜花</title>
 </head>
-<script src = "/static/common/scripts/lib/jquery.min.js" type = "text/javascript"></script>
-<link href="/static/common/css/main.css" rel="stylesheet"></link>
-<link href="/static/common/css/more.css" rel="stylesheet"/>
-<script src="/static/common/scripts/src/jquery.pear.js" type="text/javascript"></script>
 <body>
 
 <SC:Header/>
@@ -25,7 +21,7 @@
 <div id="content">
 	<SC:sideNavi></SC:sideNavi>
 	<div id="product">
-		<SC:GoodsList id="apple" cssClass="pear" displayAll="true" pageIndex='<%= Integer.parseInt(pageIndex) - 1%>' pageSize="20"/>
+		<SC:GoodsList id="apple" cssClass="pear" displayAll="true" pageIndex='<%= Integer.parseInt(pageIndex) - 1%>' pageSize="2"/>
 		<script>
 		    $("#apple")
 		        .pear({
