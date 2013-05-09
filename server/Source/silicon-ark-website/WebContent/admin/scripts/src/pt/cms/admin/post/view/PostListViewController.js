@@ -14,7 +14,7 @@ pt.cms.admin.post.view.PostListViewController = function()
     me.restClient = null;
     me.loading = false;
     
-    me.pageIndex = 1;
+    me.pageIndex = 0;
     me.pageCount = 1000;
     me.pageSize = 20;
     

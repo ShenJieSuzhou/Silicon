@@ -86,4 +86,10 @@ public class PathUtil {
         }
         return _result;
 	}
+	
+	public static String CorrectPath(String m_path)
+	{
+		String _path = m_path.replace('\\', '/');
+		return _path;
+	}
 }

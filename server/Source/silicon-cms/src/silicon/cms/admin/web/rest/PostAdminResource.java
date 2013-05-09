@@ -28,6 +28,7 @@ import silicon.cms.common.uuid.GenerateUUID;
 import silicon.cms.runtime.service.PostRuntimeManager;
 import silicon.common.SCLog;
 import silicon.common.util.DateUtil;
+import silicon.common.util.PathUtil;
 
 @Path("admin/post")
 public class PostAdminResource extends AbstractResource
@@ -63,7 +64,7 @@ public class PostAdminResource extends AbstractResource
 		}
 		else  if(_CurrentUser.equals("administrator"))
 		{    		
-			posts = PostAdminManager.getInstance().loadPostsByCategory("", m_pageIndex, m_pageSize);		
+			posts = PostRuntimeManager.getInstance().loadAllPosts(m_pageIndex, m_pageSize);		
 		}
 		else 
 		{
@@ -123,11 +124,13 @@ public class PostAdminResource extends AbstractResource
 		return responseWithJSONObject(jsonResult);
 	}
 	
+	
 	@PUT
 	@Path("/{id}")
-	public Response updatePost(@PathParam("id") String m_id,
+	public Response updatePosts(@PathParam("id") String m_id,
 			@FormParam("post") String m_postJSONString) throws JSONException
 	{
+		SCLog.info("enter update Post ...");
 		GoodsEntity post = PostAdminManager.getInstance().getPostById(m_id);
 		if(post != null)
 		{
@@ -143,14 +146,13 @@ public class PostAdminResource extends AbstractResource
 		}
 	}
 	
+	
 	@DELETE
 	@Path("/{id}")
 	public Response deletePost(@PathParam("id") String m_id)
 	{	
-		if("Administrator".equals( Membership.getInstance().getCurrentUser().getUserRole() ))
-		{
-			PostAdminManager.getInstance().deletePost(m_id);
-		}	
+		SCLog.info("delete post...");
+		PostAdminManager.getInstance().deletePost(m_id);
 		return responseOK();
 	}
 	
@@ -158,7 +160,7 @@ public class PostAdminResource extends AbstractResource
 			throws JSONException
 	{
 		post.setTitle(postJSON.getString("title"));
-		post.setContentText(postJSON.getString("contentText"));
+		post.setContentText(PathUtil.CorrectPath(postJSON.getString("contentText")));
 		post.setSummary(postJSON.getString("summary"));
 		post.setCategoryId(postJSON.getString("categoryId"));
 		post.setPrice(postJSON.getString("price"));

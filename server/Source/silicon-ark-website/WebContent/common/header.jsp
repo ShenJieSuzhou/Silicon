@@ -14,7 +14,7 @@ request.setCharacterEncoding("utf-8");
 <div id="header">
 	<div id="container">
 		<div id="logo">
-			<a href=""><img src="/static/common/images/homelogo.png" title="谢耳朵的小店"/></a>
+			<a href="/"><img src="/static/common/images/homelogo.png" title="谢耳朵的小店"/></a>
 		</div>
 		<div id="cursor">
 			<img src="/static/common/images/sbname.png" />

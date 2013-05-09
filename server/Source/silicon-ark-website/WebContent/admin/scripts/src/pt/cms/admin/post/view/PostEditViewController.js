@@ -402,16 +402,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
             post.subcategoryId = null;
         }
         
-        //post.homeSubcategoryId = me.$homeSubcategory.val();
-        //if (post.homeSubcategoryId == 0)
-        //{
-        //    post.homeSubcategoryId = null;
-        //}
-        
         post.contentText = _formatContent(me.$content.val());
-        //post.postStatus = parseInt(me.$postStatus.val());
-        //post.postType = parseInt(me.$postType.val());
-        //post.source = me.$source.val();
         
         post.photoURL = _formatLink(me.$photoURL.val());
         if (post.photoURL == "")
@@ -419,7 +410,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
             post.photoURL = null;
         }
         
-        if (post.id != null)
+        if (post.title != null)
         {
             return me.restClient.PUT("admin/post/" + post.id, { post: JSON.stringify(post) })
                 .success(function(p_result){
@@ -436,7 +427,6 @@ pt.cms.admin.post.view.PostEditViewController = function()
                     postInList.source = me.data.source;
                     postInList.summary = me.data.summary;
                     listViewController.reloadSelectedRow();
-                    
                     if (!p_silentMode)
                     {
                         alert("您已成功保存当前操作的文章。");
@@ -457,7 +447,6 @@ pt.cms.admin.post.view.PostEditViewController = function()
                     me.renderView();
                     var listViewController = $pageController.rootViewControllers["post"].postListViewController;
                     listViewController.insertItem(0, me.data);
-                    
                     alert("您已成功创建当前操作的文章。");
                 })
                 .fail(function()

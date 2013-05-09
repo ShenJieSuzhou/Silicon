@@ -46,19 +46,8 @@ public class PostAdminManager {
 		{
 			return null;
 		}
-		if(p_pageIndex == 0)
-		{
-			_sql = "select * from st_goods limit 0," + String.valueOf(p_pageSize);
-		}
-		else
-		{
-			_sql = "select * from st_goods limit 0," + String.valueOf(p_pageSize * p_pageIndex);
-		}
-		
-		if(!m_categoryId.equals(""))
-		{
-			 _sql += " where ST_CATEGORY_GOOD_ID = " + "'" + m_categoryId + "'";
-		}
+
+		_sql += " where ST_CATEGORY_GOOD_ID = " + "'" + m_categoryId + "'";
 		
 		List<GoodsEntity> poList = getPostDAO().query(_sql);
 		return poList;

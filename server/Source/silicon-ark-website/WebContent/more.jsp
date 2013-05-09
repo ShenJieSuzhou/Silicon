@@ -1,28 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="silicon.cms.common.entity.SubCategoryEntity" %>
-<%@ page import="silicon.cms.common.entity.CategoryEntuty" %>
-<%@ page import="silicon.cms.runtime.service.CategoryRuntimeManager" %>
 <%@ taglib prefix="SC" tagdir="/WEB-INF/tags/homePage/"%>
 
 <%
 String categoryId = request.getParameter("categoryId");
 String subCategoryId = request.getParameter("subcategoryId");
-if(subCategoryId != null && subCategoryId.equals(""))
-{
-	subCategoryId = null;
-}
 
-SubCategoryEntity subcategory = null;
-if(subCategoryId != null)
-{
-	subcategory = CategoryRuntimeManager.getInstance().getSubCategory(m_CategoryId);
-	if(subcategory == null)
-	{
-		response.setStatus(404);
-		return;
-	}
-}
 %>
 
 
@@ -36,11 +19,11 @@ if(subCategoryId != null)
 <div id="content">
 	<SC:sideNavi></SC:sideNavi>
 	<div id="product">
-		<SC:GoodsList id="apple" cssClass="pear" subcategoryId="<%= subcategoryId%>" categoryId="<%= categoryId%>" pageIndex='<%= Integer.parseInt(request.getParameter("pageIndex")) - 1%>' pageSize="20"/>
+		<SC:GoodsList id="apple" cssClass="pear" subcategoryId="<%= subCategoryId%>" categoryId="<%= categoryId%>" pageIndex='<%= Integer.parseInt(request.getParameter("pageIndex")) - 1%>' pageSize="9"/>
 		<script>
 		    $("#apple")
 		        .pear({
-		            cellWidth: 180,
+		            cellWidth: 200,
 		            cellHeight: 268,
 		            padding: 10
 		        })

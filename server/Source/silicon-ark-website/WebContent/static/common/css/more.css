@@ -67,7 +67,19 @@
 	display: block;
 	float: right;
 	margin-right: 50px;
-	margin-top: 20px;
+	margin-top: 50px;
 	padding: 0;
 	clear: both;
+}
+
+.PageNavigationBar a
+{
+	text-decoration: none;
+	color: #000;
+}
+
+.PageNavigationBar a:hover
+{
+	text-decoration: none;
+	color: #686868;
 }

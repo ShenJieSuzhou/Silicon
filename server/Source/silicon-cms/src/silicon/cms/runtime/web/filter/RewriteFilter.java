@@ -25,9 +25,9 @@ public class RewriteFilter implements Filter
 	{
 		if (_postURLPattern == null)
 		{
-			_postURLPattern = Pattern.compile("/([A-Z0-9]{32})/([a-z0-9]{31}).html");			
+			_postURLPattern = Pattern.compile("/([A-Z0-9]{32})/([a-z0-9]{32}).html");			
 			_moreCategoryURLPattern = Pattern.compile("/([a-z]+)/more/([0-9]*)");
-			_moreSubcategoryURLPattern = Pattern.compile("/([A-Z0-9]{32})/([A-Z0-9]{32})/more/([0-9]*)");
+			_moreSubcategoryURLPattern = Pattern.compile("/([A-Z0-9]{32})/([A-Z0-9]{32})/more");
 			_allURLPattern = Pattern.compile("/([0-9]+)");	
 		}
 	}

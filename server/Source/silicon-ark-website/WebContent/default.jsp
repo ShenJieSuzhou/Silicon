@@ -21,11 +21,11 @@
 <div id="content">
 	<SC:sideNavi></SC:sideNavi>
 	<div id="product">
-		<SC:GoodsList id="apple" cssClass="pear" displayAll="true" pageIndex='<%= Integer.parseInt(pageIndex) - 1%>' pageSize="2"/>
+		<SC:GoodsList id="apple" cssClass="pear" displayAll="true" pageIndex='<%= Integer.parseInt(pageIndex) - 1%>' pageSize="9"/>
 		<script>
 		    $("#apple")
 		        .pear({
-		            cellWidth: 180,
+		            cellWidth: 210,
 		            cellHeight: 268,
 		            padding: 10
 		        })

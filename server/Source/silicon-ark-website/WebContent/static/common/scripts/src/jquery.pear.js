@@ -3,7 +3,7 @@ $.fn.pear = function(opt)
     var defaultOpt = {
         cellWidth: 500,
         cellHeight: 300,
-        cellPadding: 5
+        cellPadding: 15
     };
     opt = $.extend(defaultOpt, opt);
     this.addClass("pear");
