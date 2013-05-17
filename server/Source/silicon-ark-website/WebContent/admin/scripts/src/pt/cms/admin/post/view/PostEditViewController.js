@@ -26,11 +26,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
     me.$price = null;
     me.$category = null;
     me.$subcategory = null;
-    me.$homeSubcategory = null;
     me.$content = null;
-    me.$postType = null;
-    me.$postStatus = null;
-    me.$source = null;
     me.$photoURL = null;
     me.$publisher = null;
     me.$createTime = null;
@@ -254,7 +250,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
     
     me.renderView = function()
     {
-        if (me.data.id != null)
+    	if (me.data.id != null)
         {
             me.$id.val(me.data.id);
             me.toolbar.$element.find("#upload").css("display", "inline-block");
@@ -273,7 +269,6 @@ pt.cms.admin.post.view.PostEditViewController = function()
         
         me.$category.val(me.data.categoryId);
         _category_onchanged();
-       
         
         if (me.data.subcategoryId != null)
         {
@@ -284,18 +279,6 @@ pt.cms.admin.post.view.PostEditViewController = function()
             me.$subcategory.val(0);
         }
         
-       // if (me.data.homeSubcategoryId != null)
-       // {
-       //     me.$homeSubcategory.val(me.data.homeSubcategoryId);
-       // }
-       // else
-       // {
-       //     me.$homeSubcategory.val(0);
-       // }
-        
-       // me.$postStatus.val(me.data.postStatus);
-       // me.$postType.val(me.data.postType);
-        me.$source.val(me.data.source);
         me.$publisher.text(me.data.publisher);
         me.$photoURL.val(me.data.photoURL);
         
@@ -410,7 +393,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
             post.photoURL = null;
         }
         
-        if (post.title != null)
+        if (post.id != null)
         {
             return me.restClient.PUT("admin/post/" + post.id, { post: JSON.stringify(post) })
                 .success(function(p_result){
@@ -424,7 +407,6 @@ pt.cms.admin.post.view.PostEditViewController = function()
                     var postInList = listViewController.data[listViewController.view.selectedIndex];
                     postInList.title = me.data.title;
                     postInList.updateTime = me.data.updateTime;
-                    postInList.source = me.data.source;
                     postInList.summary = me.data.summary;
                     listViewController.reloadSelectedRow();
                     if (!p_silentMode)
@@ -466,7 +448,7 @@ pt.cms.admin.post.view.PostEditViewController = function()
     
     function _btnSave_onclick(e)
     {
-        me.savePost();
+        me.savePost(true);
     }
     
     function _btnPreviewPost_onclick(e)

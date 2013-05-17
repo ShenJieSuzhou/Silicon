@@ -75,8 +75,11 @@ public class PostAdminResource extends AbstractResource
 	
 	@GET
 	@Path("/{id}")
-	public Response getPost(@PathParam("id") String m_id)
+	public Response getPost(
+			@PathParam("id") String m_id
+			) throws JSONException
 	{
+		SCLog.info("detail...");
 		if(m_id == null)
 		{
 			return null;

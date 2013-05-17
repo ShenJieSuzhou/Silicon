@@ -2,8 +2,6 @@ package silicon.ark.dao;
 
 import java.sql.*;
 
-import silicon.common.SCLog;
-
 public class DataBaseConn {
 	
 	public static String _url = null;
