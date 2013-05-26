@@ -1,16 +1,70 @@
+span
+{
+	color: #fff;
+	font-weight: bolder;
+	text-align: center;	
+}
+
+#hinder
+{
+	font-weight: bold;
+	color: #000;
+}
+
 #goodsDetail
 {
-	margin: 0;
+	margin: 0 0 0 30px;
 	padding: 0;
 	display: block;
 	width: 667px;
 	height: 100%;
 }
 
-#goodsDetail h1
+#goodsDetail #wall
 {
-	text-align: center;
+	display: block;
+	width: 667px;
+	height: 300px;
+	padding: 0;
+	margin: 0;
 }
+
+#goodsDetail #wall #photo
+{
+	display: block;
+	padding: 0;
+	margin: 0 30px 0 0;
+	float: left;
+	width: 220px;
+	height: 268px;
+	background: #fff;
+	overflow: hidden;
+}
+
+#goodsDetail #wall #photo > img
+{
+	padding: 3px;
+	width: 220px;
+	height: 100%;
+}
+ 
+#goodsDetail #wall h1
+{
+	display: block;
+	width: 400px;
+	text-align: left;
+	font-size: 16px;
+}
+
+#goodsDetail #wall #price
+{
+	display: block;
+	width: 400px;
+	height: 25px;
+	text-align: left;
+	font-size: 14px; 
+}
+
 
 #info
 {
@@ -20,6 +74,65 @@
 #summary
 {
 	display: block;
+	float: left;
+	width: 400px;
+	margin: 0 0 10px 0;
+}
+
+#logistics
+{
+	display: block;
+	float: left;
+	width: 400px;
+	margin: 0 0 10px 0;
+}
+
+#number
+{
+	display: block;
+	float: left;
+	width: 400px;
+	margin: 0 0 10px 0;
+}
+
+#number input
+{
+	width: 60px;
+}
+
+#purchase
+{
+	display: block;
+	width: 180px;
+	height: 50px;
+	float: left;
+	margin: 3px 0 0 0;
+	background: url(/static/common/images/purchase.png) no-repeat;
+	text-align: center;
+}
+
+#purchase #ohyeah
+{
+	display: block;
+	margin: 13px 27px 0 0;
+}
+
+
+
+#cart
+{
+	display: block;
+	width: 180px;
+	height: 50px;
+	float: left;
+	background: url(/static/common/images/cart.png) no-repeat;
+	text-align: center;
+}
+
+#cart #add
+{
+	display: block;
+	margin: 16px 27px 0 0;
 }
 
 #content
@@ -27,4 +140,16 @@
 	displlay: block;
 	width: 667px;
 	height: 100%;
+	background: none;
+}
+
+#content img
+{
+	box-shadow: 0 2px 6px #c6c6c6;
+}
+
+#content span
+{
+	color: #000;
+	background: none;
 }

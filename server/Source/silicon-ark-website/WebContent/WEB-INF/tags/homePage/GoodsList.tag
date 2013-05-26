@@ -52,10 +52,16 @@ else if(displayAll)
 <% for(GoodsEntity goods : posts) {%>
 <li id="<%= goods.getId()%>">
 	<a href="<%= goods.getLink()%>"  <%= openInNewWindow ? "target='_blank'" : ""%> title="<%= goods.getTitle()%>">
-		<img src='<%= goods.getPhotoURL() %>'/>
-		<div id="title"><%= goods.getTitle() %></div>
+		<div id="photo">
+			<img src='<%= goods.getPhotoURL() %>'/>
+			<div id="title"><%= goods.getTitle() %></div>
+		</div>		
 		<div id="price"><%= goods.getPrice() %></div>
 	</a>
+	<div id="func">
+		<span><img src="/static/common/images/scanf.png"/></span>
+		<span><img src="/static/common/images/like.png"/></span>
+	</div>
 </li>
 <%} %>
 </ul>
